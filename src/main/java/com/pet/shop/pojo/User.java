@@ -12,4 +12,8 @@ public class User {
     public String pwd;
 
     public String phone;
+
+    public Integer identity;
+
+    public String address;
 }
