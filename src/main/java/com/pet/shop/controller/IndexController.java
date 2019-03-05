@@ -13,4 +13,8 @@ public class IndexController {
         log.info("准备进入首页！");
         return "index";
     }
+    @RequestMapping("/login")
+    public  String login(){
+        return "login";
+    }
 }
