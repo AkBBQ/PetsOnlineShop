@@ -1,1535 +1,468 @@
-<!DOCTYPE html>
-<html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="order by dede58.com"/>
-    <title>宠物天地</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <meta charset="UTF-8"/>
+    <title>宠物商店</title>
+    <link rel="stylesheet" type="text/css" href="../res/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css" />
+    <script type="text/javascript" src="../res/layui/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
 </head>
-<body>
-<!-- start header -->
-<header>
-    <div class="top center">
-        <div class="left fl">
-            <ul>
-                <li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>
-                <li>|</li>
-                <li><a href="">MIUI</a></li>
-                <li>|</li>
-                <li><a href="">米聊</a></li>
-                <li>|</li>
-                <li><a href="">游戏</a></li>
-                <li>|</li>
-                <li><a href="">多看阅读</a></li>
-                <li>|</li>
-                <li><a href="">云服务</a></li>
-                <li>|</li>
-                <li><a href="">金融</a></li>
-                <li>|</li>
-                <li><a href="">小米商城移动版</a></li>
-                <li>|</li>
-                <li><a href="">问题反馈</a></li>
-                <li>|</li>
-                <li><a href="">Select Region</a></li>
-                <div class="clear"></div>
-            </ul>
+<body id="list-cont">
+<div class="site-nav-bg">
+    <div class="site-nav w1200">
+        <p class="sn-back-home">
+            <i class="layui-icon layui-icon-home"></i>
+            <a href="#">首页</a>
+        </p>
+        <div class="sn-quick-menu">
+            <div class="login"><a href="login.html">登录</a></div>
+            <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
         </div>
-        <div class="right fr">
-            <div class="gouwuche fr"><a href="">购物车</a></div>
-            <div class="fr">
-                <ul>
-                    <li><a href="/login" target="_blank">登录</a></li>
-                    <li>|</li>
-                    <li><a href="./register.html" target="_blank" >注册</a></li>
-                    <li>|</li>
-                    <li><a href="">消息通知</a></li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</header>
-<!--end header -->
-
-<!-- start banner_x -->
-<div class="banner_x center">
-    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-    <a href=""><div class="ad_top fl"></div></a>
-    <div class="nav fl">
-        <ul>
-            <li><a href="./liebiao.html" target="_blank">小米手机</a></li>
-            <li><a href="">红米</a></li>
-            <li><a href="">平板·笔记本</a></li>
-            <li><a href="">电视</a></li>
-            <li><a href="">盒子·影音</a></li>
-            <li><a href="">路由器</a></li>
-            <li><a href="">智能硬件</a></li>
-            <li><a href="">服务</a></li>
-            <li><a href="">社区</a></li>
-        </ul>
-    </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru"  placeholder="小米6&nbsp;小米MIX现货" />
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
     </div>
 </div>
-<!-- end banner_x -->
-
-<!-- start banner_y -->
-<div class="banner_y center">
-    <div class="nav">
-        <ul>
-            <li>
-                <a href="">手机</a>
-                <a href="">电话卡</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="./xiangqing.html" target="_blank">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt=""/></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="right fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/compare.jpg" alt="" /></div>
-                                    <span class="fl">对比手机</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/mimobile.jpg" alt="" /></div>
-                                    <span class="fl">小米移动&nbsp;电话卡</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">笔记本</a>
-                <a href="">平板</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt="" /></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">电视</a>
-                <a href="">盒子</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt="" /></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="right fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/compare.jpg" alt="" /></div>
-                                    <span class="fl">对比手机</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/mimobile.jpg" alt="" /></div>
-                                    <span class="fl">小米移动&nbsp;电话卡</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">路由器</a>
-                <a href="">智能硬件</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt="" /></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="right fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/compare.jpg" alt="" /></div>
-                                    <span class="fl">对比手机</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/mimobile.jpg" alt="" /></div>
-                                    <span class="fl">小米移动&nbsp;电话卡</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">移动电源</a>
-                <a href="">电池</a>
-                <a href="">插线板</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt="" /></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="right fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/compare.jpg" alt="" /></div>
-                                    <span class="fl">对比手机</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/mimobile.jpg" alt="" /></div>
-                                    <span class="fl">小米移动&nbsp;电话卡</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">耳机</a>
-                <a href="">音箱</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="ctn fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5-80.jpg" alt="" /></div>
-                                    <span class="fl">小米手机5</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmn4x80.png" alt="" /></div>
-                                    <span class="fl">红米Note 4X</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hmnote4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米Note-4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4x_80.png" alt="" /></div>
-                                    <span class="fl">红米4x</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/hm4A-80.jpg" alt="" /></div>
-                                    <span class="fl">红米4A</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="right fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/compare.jpg" alt="" /></div>
-                                    <span class="fl">对比手机</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/mimobile.jpg" alt="" /></div>
-                                    <span class="fl">小米移动&nbsp;电话卡</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <!-- <div class="xuangou_right fr"><a href="">选购</a></div> -->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">保护套</a>
-                <a href="">贴膜</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">线材</a>
-                <a href="">支架</a>
-                <a href="">储存卡</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">箱包</a>
-                <a href="">服饰</a>
-                <a href="">鞋</a>
-                <a href="">眼镜</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <a href="">米兔</a>
-                <a href="">生活周边</a>
-                <div class="pop">
-                    <div class="left fl">
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm6_80.png" alt="" /></div>
-                                    <span class="fl">小米6</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/5c_80.png" alt="" /></div>
-                                    <span class="fl">小米手机5c</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xmNOTE2-80.jpg" alt="" /></div>
-                                    <span class="fl">小米Note 2</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米MIX</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/MIX-80.jpg" alt="" /></div>
-                                    <span class="fl">小米5s</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div>
-                            <div class="xuangou_left fl">
-                                <a href="">
-                                    <div class="img fl"><img src="./image/xm5Splus.jpg" alt="" /></div>
-                                    <span class="fl">小米5s Plus</span>
-                                    <div class="clear"></div>
-                                </a>
-                            </div>
-                            <div class="xuangou_right fr"><a href="">选购</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-</div>
-
-<div class="sub_banner center">
-    <div class="sidebar fl">
-        <div class="fl"><a href=""><img src="./image/hjh_01.gif" /></a></div>
-        <div class="fl"><a href=""><img src="./image/hjh_02.gif" /></a></div>
-        <div class="fl"><a href=""><img src="./image/hjh_03.gif" /></a></div>
-        <div class="fl"><a href=""><img src="./image/hjh_04.gif" /></a></div>
-        <div class="fl"><a href=""><img src="./image/hjh_05.gif" /></a></div>
-        <div class="fl"><a href=""><img src="./image/hjh_06.gif" /></a></div>
-        <div class="clear"></div>
-    </div>
-    <div class="datu fl"><a href=""><img src="./image/hongmi4x.png" alt="" /></a></div>
-    <div class="datu fl"><a href=""><img src="./image/xiaomi5.jpg" alt="" /></a></div>
-    <div class="datu fr"><a href=""><img src="./image/pinghengche.jpg" alt="" /></a></div>
-    <div class="clear"></div>
 
 
-</div>
-<!-- end banner -->
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-
-<!-- start danpin -->
-<div class="danpin center">
-
-    <div class="biaoti center">小米明星单品</div>
-    <div class="main center">
-        <div class="mingxing fl">
-            <div class="sub_mingxing"><a href=""><img src="./image/pinpai1.png" alt="" /></a></div>
-            <div class="pinpai"><a href="">小米MIX</a></div>
-            <div class="youhui">5月9日-21日享花呗12期分期免息</div>
-            <div class="jiage">3499元起</div>
-        </div>
-        <div class="mingxing fl">
-            <div class="sub_mingxing"><a href=""><img src="./image/pinpai2.png" alt="" /></a></div>
-            <div class="pinpai"><a href="">小米5s</a></div>
-            <div class="youhui">5月9日-10日，下单立减200元</div>
-            <div class="jiage">1999元</div>
-        </div>
-        <div class="mingxing fl">
-            <div class="sub_mingxing"><a href=""><img src="./image/pinpai3.png" alt="" /></a></div>
-            <div class="pinpai"><a href="">小米手机5 64GB</a></div>
-            <div class="youhui">5月9日-10日，下单立减100元</div>
-            <div class="jiage">1799元</div>
-        </div>
-        <div class="mingxing fl">
-            <div class="sub_mingxing"><a href=""><img src="./image/pinpai4.png" alt="" /></a></div>
-            <div class="pinpai"><a href="">小米电视3s 55英寸</a></div>
-            <div class="youhui">5月9日，下单立减200元</div>
-            <div class="jiage">3999元</div>
-        </div>
-        <div class="mingxing fl">
-            <div class="sub_mingxing"><a href=""><img src="./image/pinpai5.png" alt="" /></a></div>
-            <div class="pinpai"><a href="">小米笔记本</a></div>
-            <div class="youhui">更轻更薄，像杂志一样随身携带</div>
-            <div class="jiage">3599元起</div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="peijian w">
-    <div class="biaoti center">配件</div>
-    <div class="main center">
-        <div class="content">
-            <div class="remen fl"><a href=""><img src="./image/peijian1.jpg" /></a>
+<div class="header">
+    <div class="headerLayout w1200">
+        <div class="headerCon">
+            <h1 class="mallLogo">
+                <a href="#" title="宠物商城">
+                    <img src="../res/static/img/logo.png" style="width: 600px"/>
+                </a>
+            </h1>
+            <div class="mallSearch">
+                <form action="" class="layui-form">
+                    <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品" />
+                    <button class="layui-btn" lay-filter="formDemo">
+                        <i class="layui-icon layui-icon-search"></i>
+                    </button>
+                    <input type="hidden" name="" value="" />
+                </form>
             </div>
-            <div class="remen fl">
-                <div class="xinpin"><span>新品</span></div>
-                <div class="tu"><a href=""><img src="./image/peijian2.jpg" /></a></div>
-                <div class="miaoshu"><a href="">小米6 硅胶保护套</a></div>
-                <div class="jiage">49元</div>
-                <div class="pingjia">372人评价</div>
-                <div class="piao">
-                    <a href="">
-                        <span>发货速度很快！很配小米6！</span>
-                        <span>来至于mi狼牙的评价</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="main-nav">
+        <div class="inner-cont0">
+            <div class="inner-cont1 w1200">
+                <div class="inner-cont2">
+                    <a href="commodity.html">商城列表</a>
+                    <a href="buytoday.html">今日团购</a>
+                    <a href="information.html">宠物资讯</a>
+                    <a href="about.html">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category-con">
+        <div class="category-inner-con w1200">
+            <div class="category-type">
+                <h3>全部分类</h3>
+            </div>
+            <div class="category-tab-content">
+                <div class="nav-con">
+                    <ul class="normal-nav layui-clear">
+                        <li class="nav-item">
+                            <div class="title">宠物</div>
+                            <p><a href="#">宠物狗</a><a href="#">宠物猫</a><a href="#">其他</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">宠物食品</div>
+                            <p><a href="#">狗粮</a><a href="#">猫粮</a><a href="#">其他</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">洗护用品</div>
+                            <p><a href="#">宠物清洗</a><a href="#">孕婴童用品</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">宠物玩具</div>
+                            <p><a href="#">婴幼玩具</a><a href="#">遥控玩具</a><a href="#">积木拼插</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">车窗座椅</div>
+                            <p><a href="#">婴儿推车</a><a href="#">儿童安全座骑</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">儿童童鞋</div>
+                            <p><a href="#">童装</a><a href="#">童鞋</a><a href="#">婴童内衣及配饰</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <div class="title">儿童图片</div>
+                            <p><a href="#">0-2岁</a><a href="#">早教启蒙</a><a href="#">孕产育儿</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                        <li class="nav-item nobor">
+                            <div class="title">孕妈专区</div>
+                            <p><a href="#">孕妇装</a><a href="#">背婴带</a><a href="#">母婴服务</a></p>
+                            <i class="layui-icon layui-icon-right"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="category-banner">
+            <div class="w1200">
+                <img src="../res/static/img/banner1.jpg"  />
+            </div>
+        </div>
+    </div>
+    <div class="floors">
+        <div class="sk">
+            <div class="sk_inner w1200">
+                <div class="sk_hd">
+                    <a href="javascript:;">
+                        <img src="../res/static/img/s_img1.jpg" />
                     </a>
                 </div>
-            </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:#fff"></span></div>
-                <div class="tu"><a href=""><img src="./image/peijian3.jpg" /></a></div>
-                <div class="miaoshu"><a href="">小米手机4c 小米4c 智能</a></div>
-                <div class="jiage">29元</div>
-                <div class="pingjia">372人评价</div>
-            </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:red">享6折</span></div>
-                <div class="tu"><a href=""><img src="./image/peijian4.jpg" /></a></div>
-                <div class="miaoshu"><a href="">红米NOTE 4X 红米note4X</a></div>
-                <div class="jiage">19元</div>
-                <div class="pingjia">372人评价</div>
-                <div class="piao">
-                    <a href="">
-                        <span>发货速度很快！很配小米6！</span>
-                        <span>来至于mi狼牙的评价</span>
-                    </a>
+                <div class="sk_bd">
+                    <div class="layui-carousel" id="test1">
+                        <div class="carousel-item">
+                            <div class="item-box">
+                                <div class="item">
+                                    <a href="javascript:;"><img src="../res/static/img/s_img2.jpg"  /></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="../res/static/img/s_img3.jpg"  /></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="../res/static/img/s_img4.jpg"  /></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a href="javascript:;"><img src="../res/static/img/s_img5.jpg"  /></a>
+                                    <div class="title">宝宝五彩袜棉质舒服</div>
+                                    <div class="price">
+                                        <span>￥49.00</span>
+                                        <del>￥99.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:#fff"></span></div>
-                <div class="tu"><a href=""><img src="./image/peijian5.jpg" /></a></div>
-                <div class="miaoshu"><a href="">小米支架式自拍杆</a></div>
-                <div class="jiage">89元</div>
-                <div class="pingjia">372人评价</div>
-                <div class="piao">
-                    <a href="">
-                        <span>发货速度很快！很配小米6！</span>
-                        <span>来至于mi狼牙的评价</span>
-                    </a>
-                </div>
-            </div>
-            <div class="clear"></div>
         </div>
-        <div class="content">
-            <div class="remen fl"><a href=""><img src="./image/peijian6.png" /></a>
-            </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:#fff"></span></div>
-                <div class="tu"><a href=""><img src="./image/peijian7.jpg" /></a></div>
-                <div class="miaoshu"><a href="">小米指环支架</a></div>
-                <div class="jiage">19元</div>
-                <div class="pingjia">372人评价</div>
-                <div class="piao">
-                    <a href="">
-                        <span>发货速度很快！很配小米6！</span>
-                        <span>来至于mi狼牙的评价</span>
-                    </a>
+    </div>
+
+
+
+
+
+
+    <div class="hot-recommend-con">
+        <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+        <div class="hot-con1 w1200 layui-clear">
+            <div class="item">
+                <h4>热销推荐</h4>
+                <div class="big-img">
+                    <a href="javascript:;"><img src="../res/static/img/hot1.png" /></a>
+                </div>
+                <div class="small-img">
+                    <a href="javascript:;"><img src="../res/static/img/hot2.png" alt="" /></a>
                 </div>
             </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:#fff"></span></div>
-                <div class="tu"><a href=""><img src="./image/peijian8.jpg" /></a></div>
-                <div class="miaoshu"><a href="">米家随身风扇</a></div>
-                <div class="jiage">19.9元</div>
-                <div class="pingjia">372人评价</div>
+            <div class="item">
+                <div class="top-img">
+                    <a href="javascript:;"><img src="../res/static/img/hot5.jpg"  /></a>
+                </div>
+                <div class="bottom-img">
+                    <a href="javascript:;"><img src="../res/static/img/hot6.jpg"  /></a>
+                    <a class="baby-cream" href="javascript:;"><img src="../res/static/img/hot7.jpg"  /></a>
+                </div>
             </div>
-            <div class="remen fl">
-                <div class="xinpin"><span style="background:#fff"></span></div>
-                <div class="tu"><a href=""><img src="./image/peijian9.jpg" /></a></div>
-                <div class="miaoshu"><a href="">红米4X 高透软胶保护套</a></div>
-                <div class="jiage">59元</div>
-                <div class="pingjia">775人评价</div>
+            <div class="item item1 margin0 padding0">
+                <a href="javascript:;"><img src="../res/static/img/hot8.jpg"  /></a>
+                <a href="javascript:;"><img class="btm-img" src="../res/static/img/hot9.jpg"  /></a>
             </div>
-            <div class="remenlast fr">
-                <div class="hongmi"><a href=""><img src="./image/hongmin4.png" alt="" /></a></div>
-                <div class="liulangengduo"><a href=""><img src="./image/liulangengduo.png" alt="" /></a></div>
+        </div>
+    </div>
+
+
+
+    <div class="product-cont w1200" id="product-cont">
+        <div class="product-item product-item1 layui-clear">
+            <div class="left-title">
+                <h4><i>1F</i></h4>
+                <img src="../res/static/img/icon_gou.png" />
+                <h5>宝宝服饰</h5>
             </div>
-            <div class="clear"></div>
+            <div class="right-cont">
+                <a href="javascript:;" class="top-img"><img src="../res/static/img/img12.jpg"  /></a>
+                <div class="img-box">
+                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                </div>
+            </div>
+        </div>
+        <div class="product-item product-item2 layui-clear">
+            <div class="left-title">
+                <h4><i>2F</i></h4>
+                <img src="../res/static/img/icon_gou.png" />
+                <h5>奶粉辅食</h5>
+            </div>
+            <div class="right-cont">
+                <a href="javascript:;" class="top-img"><img src="../res/static/img/img12.jpg"  /></a>
+                <div class="img-box">
+                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                </div>
+            </div>
+        </div>
+        <div class="product-item product-item3 layui-clear">
+            <div class="left-title">
+                <h4><i>3F</i></h4>
+                <img src="../res/static/img/icon_gou.png" />
+                <h5>宝宝用品</h5>
+            </div>
+            <div class="right-cont">
+                <a href="javascript:;" class="top-img"><img src="../res/static/img/img12.jpg" /></a>
+                <div class="img-box">
+                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
+                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-list-box" id="product-list-box">
+        <div class="product-list-cont w1200">
+            <h4>更多推荐</h4>
+            <div class="product-item-box layui-clear">
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more1.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more2.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+                <div class="list-item">
+                    <a href="javascript:;"><img src="../res/static/img/more3.jpg"  /></a>
+                    <p>时尚宝宝小黄鸭T恤纯棉耐脏多色可选0-2岁宝宝</p>
+                    <span>￥100.00</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<footer class="mt20 center">
-    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
-    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
-    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
-</footer>
+
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" href="javascript:;">7天无理由退换货</a>
+                <a class="icon2" href="javascript:;">满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p>
+            <a href="javascript:;">关于我们</a>
+            <span>|</span>
+            <a href="javascript:;">帮助中心</a>
+            <span>|</span>
+            <a href="javascript:;">售后服务</a>
+            <span>|</span>
+            <a href="javascript:;">母婴资讯</a>
+            <span>|</span>
+            <a href="javascript:;">关于货源</a>
+            <span>|</span>
+            <a href="javascript:;">管理员后台</a>
+        </p>
+        <p class="coty">母婴商城版权所有 &copy; 2012-2020 More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+
+    layui.config({
+        base: '../res/static/js/util/' //你存放新模块的目录，注意，不是layui的模块目录
+    }).use(['mm','carousel'],function(){
+        var carousel = layui.carousel,
+            mm = layui.mm;
+        var option = {
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,arrow: 'always'
+            ,height:'298'
+            ,indicator:'none'
+        }
+        carousel.render(option);
+        // 模版引擎导入
+        // var ins = carousel.render(option);
+        // var html = demo.innerHTML;
+        // var listCont = document.getElementById('list-cont');
+        // // console.log(layui.router("#/about.html"))
+        //  mm.request({
+        //    url: '../json/index.json',
+        //    success : function(res){
+        //      console.log(res)
+        //      listCont.innerHTML = mm.renderHtml(html,res)
+        //      ins.reload(option);
+        //    },
+        //    error: function(res){
+        //      console.log(res);
+        //    }
+        //  })
+
+
+    });
+</script>
 </body>
 </html>
