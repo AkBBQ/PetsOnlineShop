@@ -1,12 +1,10 @@
 package com.pet.shop.pojo;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
  * 用户类
  */
-@Builder
 @Data
 public class User {
 
@@ -33,5 +31,5 @@ public class User {
     /**
      * 地址
      */
-    public String address;
+    public String place;
 }

@@ -17,7 +17,6 @@
         <a href="index.html" th:href="toIndex">首页</a>
       </p>
       <div class="sn-quick-menu">
-        <div class="login"><a href="login.html">欢迎您</a></div>
         <div class="login"><a href="login.html">登录</a></div>
         <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
       </div>
@@ -56,8 +55,17 @@
       <div class="login-cont w1200">
         <div class="form-box">
           <form class="layui-form" action="">
-            <legend>登录</legend>
+            <legend>账户注册</legend>
             <div class="layui-form-item">
+
+              <div class="layui-inline iphone">
+                <div class="layui-input-inline">
+                  <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
+                  <input type="text" name="name" id="name" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" />
+                </div>
+              </div>
+
+
               <div class="layui-inline iphone">
                 <div class="layui-input-inline">
                   <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
@@ -65,23 +73,16 @@
                 </div>
               </div>
 
-              <div class="layui-inline">
-                <div class="layui-input">
-                  <i class="layui-icon"></i>
-                  <input type="text" name="pwd" id="pwd" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" />
+              <div class="layui-inline veri-code">
+                <div class="layui-input-inline">
+                  <input id="pnum" type="text" name="pnum" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" />
+                  <input type="button" class="layui-btn" id="find"  value="验证码" /> 
                 </div>
               </div>
-
-              <!--<div class="layui-inline veri-code">-->
-                <!--<div class="layui-input-inline">-->
-                  <!--<input id="pnum" type="text" name="pnum" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" />-->
-                  <!--<input type="button" class="layui-btn" id="find"  value="验证码" /> -->
-                <!--</div>-->
-              <!--</div>-->
             </div>
             <div class="layui-form-item login-btn">
               <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="return false" id="login">登录</button>
+                <button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="return false">登录</button>
               </div>
             </div>
           </form>
@@ -120,27 +121,6 @@
       base: '../res/static/js/util' //你存放新模块的目录，注意，不是layui的模块目录
     }).use(['jquery','form'],function(){
           var $ = layui.$,form = layui.form;
-
-       $("#login").click(function () {
-            layer.msg("点击了");
-            var phone = $("#phone").val();
-            var pwd = $("#pwd").val();
-          $.ajax({
-              type:"get",
-              url : "/Login/login",
-              data:{phone:phone,pwd:pwd},
-              success:function (data) {
-                  if(data == 0){
-                      layer.msg("登陆成功");
-                  }else {
-                      layer.msg("用户名或者密码错误!");
-                  }
-              },
-              error:function () {
-
-              }
-          })
-       })
 
 
         $("#find").click(function() {
@@ -188,5 +168,6 @@
         }
     })
   </script>
+
 </body>
 </html>
