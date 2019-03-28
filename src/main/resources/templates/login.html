@@ -17,7 +17,13 @@
         <a href="index.html" th:href="toIndex">首页</a>
       </p>
       <div class="sn-quick-menu">
-        <div class="login"><a href="login.html">欢迎您</a></div>
+        <div class="login">
+          <a href="login.html">欢迎您
+            <!--<span -->
+                  <!--th:text="${session.User.getUsername()== null ? '未登录':'s'}">-->
+            <!--</span>-->
+          </a>
+        </div>
         <div class="login"><a href="login.html">登录</a></div>
         <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
       </div>
@@ -121,8 +127,8 @@
     }).use(['jquery','form'],function(){
           var $ = layui.$,form = layui.form;
 
+       // 登录ajax
        $("#login").click(function () {
-            layer.msg("点击了");
             var phone = $("#phone").val();
             var pwd = $("#pwd").val();
           $.ajax({

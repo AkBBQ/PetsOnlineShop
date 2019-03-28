@@ -43,4 +43,17 @@ public class LoginAndRegister {
         return result;
 
     }
+
+    /**
+     * 用户注册
+     * @param user
+     * @return Integer 0:注册成功 1:用户名重复
+     *
+     */
+    @ResponseBody
+    @RequestMapping("/register")
+    public Integer register(User user){
+        Integer result = userService.register(user);
+        return  result;
+    }
 }

@@ -2,6 +2,8 @@ package com.pet.shop.pojo;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * 用户类
  */
@@ -15,7 +17,7 @@ public class User {
     /**
      * 用户名
      */
-    public String username;
+    public String name;
     /**
      * 密码
      */
@@ -32,4 +34,9 @@ public class User {
      * 地址
      */
     public String place;
+
+    /**
+     * 注册时间
+     */
+    public Date creatTime;
 }
