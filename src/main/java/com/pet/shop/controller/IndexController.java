@@ -14,11 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    /**
+     * 首页视图
+     */
     @RequestMapping("/")
     public String  hello(){
         log.info("准备进入首页！");
         return "index";
     }
+
+    /**
+     * 登录视图
+     */
     @RequestMapping("/login")
     public  String login(){
         return "login";
@@ -26,7 +33,6 @@ public class IndexController {
 
     /**
      * 返回首页
-     * @return
      */
     @RequestMapping("toIndex")
     public String toindex(){
@@ -40,4 +46,13 @@ public class IndexController {
     public String toRegister(){
         return "register";
     }
+
+    /**
+     * 管理员登录
+     */
+    @RequestMapping("adminLogin")
+    public String adminLogin(){
+        return "admin/login";
+    }
+
 }

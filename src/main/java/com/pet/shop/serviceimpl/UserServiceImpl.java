@@ -32,6 +32,8 @@ public class UserServiceImpl implements UserService {
 
         //接收登录查询的对象
         User queryUser = new User();
+        //普通用户权限为0
+        user.setIdentity(0);
         try {
             queryUser = userMapper.login(user);
             if (Objects.isNull(queryUser)) {
@@ -55,6 +57,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer register(User user) {
+        //手机号码不足11位
+        if(user.getPhone().length() != 11){
+            return 2;
+        }
+
         //flag = 0 (注册成功)  flag = 1(用户名重复,禁止注册)
         Integer flag = 0;
         //注册时候检查用户名是否重复,如果重读不允许注册
@@ -65,6 +72,7 @@ public class UserServiceImpl implements UserService {
                 log.error("注册信息为空！");
                 throw new RuntimeException("注册用户不能为空");
             }
+            //用户权限为0
             user.setIdentity(0);
             user.setCreatTime(new Date());
             try {
