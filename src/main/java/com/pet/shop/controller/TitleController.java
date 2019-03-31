@@ -78,6 +78,7 @@ public class TitleController {
      * 根据ID删除
      * @param id
      */
+    @ResponseBody
     @RequestMapping("/deleteOneFirst")
     public void delete(Integer id){
         titleService.deleteOneFirst(id);
