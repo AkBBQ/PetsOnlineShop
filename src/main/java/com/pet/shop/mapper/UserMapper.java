@@ -15,7 +15,7 @@ public interface UserMapper {
     /**
      * 用户登录
      */
-    @Select("select * from user where phone =#{phone}")
+    @Select("select * from user where phone =#{phone} and identity =#{identity}")
     User login(User user);
 
     /**
@@ -30,4 +30,11 @@ public interface UserMapper {
     @Insert("insert into user(name,pwd,phone,identity,creat_time)" +
             " values(#{name},#{pwd},#{phone},#{identity},#{creatTime} ) ")
     void regsiter(User user);
+
+    /**
+     * 管理员登录
+     * @return
+     */
+    @Select("select * from user where name = #{name} and identity =#{identity}")
+    User adminLogin(User user);
 }

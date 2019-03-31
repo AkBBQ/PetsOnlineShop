@@ -9,7 +9,7 @@ import com.pet.shop.pojo.User;
  */
 public interface UserService {
     /**
-     * 登录服务
+     * 用户登录服务
      */
      int login(User user);
 
@@ -17,5 +17,10 @@ public interface UserService {
      * 注册服务
      */
     Integer register(User user);
+
+    /**
+     * 管理员登录
+     */
+    Integer adminLogin(User user);
 
 }

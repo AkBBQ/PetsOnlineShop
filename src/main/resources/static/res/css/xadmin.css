@@ -388,7 +388,7 @@ xblock{
 .page-content .layui-tab-title{
     /*padding-top: 5px;*/
     height: 35px;
-    background: #EFEEF0 url() 0 0 no-repeat;
+    background: #EFEEF0  0 0 no-repeat;
     position: relative;
     z-index: 100;
 }

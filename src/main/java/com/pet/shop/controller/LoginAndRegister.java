@@ -6,6 +6,7 @@ import com.pet.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -55,5 +56,22 @@ public class LoginAndRegister {
     public Integer register(User user){
         Integer result = userService.register(user);
         return  result;
+    }
+
+    /**
+     *  管理员登录
+     * @param user
+     * @param httpSession
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "adminLogin",method = RequestMethod.POST)
+    public Integer adminLogin(User user,HttpSession httpSession){
+        Integer flag = userService.adminLogin(user);
+        if(flag == 0){
+            httpSession.setAttribute("admin",userMapper.adminLogin(user));
+            httpSession.setMaxInactiveInterval(60*60*24);
+        }
+        return flag;
     }
 }

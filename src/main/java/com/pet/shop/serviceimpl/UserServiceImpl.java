@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer register(User user) {
         //手机号码不足11位
-        if(user.getPhone().length() != 11){
+        if (user.getPhone().length() != 11) {
             return 2;
         }
 
@@ -84,6 +84,33 @@ public class UserServiceImpl implements UserService {
         } else {
             //注册的用户名已经存在了
             flag = 1;
+        }
+        return flag;
+    }
+
+    @Override
+    public Integer adminLogin(User user) {
+        Integer flag = 0;
+        if (Objects.isNull(user)) {
+            log.error("管理员登录账号为空!");
+            throw new RuntimeException("管理员登录账号为空!");
+        }
+        User user1 = null;
+        try {
+            user.setIdentity(1);
+            user1 = userMapper.adminLogin(user);
+        } catch (Exception e) {
+            log.error("管理员登录查询失败");
+            e.printStackTrace();
+        }
+        if (Objects.isNull(user1)) {
+            //用户名错误
+            flag = 1;
+        } else {
+            if (!user1.getPwd().equals(user.getPwd())) {
+                //密码错误
+                flag = 2;
+            }
         }
         return flag;
     }
