@@ -18,6 +18,10 @@ public class SecondTitle {
      * 关联的一级标题ID
      */
     private Integer refId;
+    /**
+     * 一级标题对应的名称
+     */
+    private String refIdDesc;
 
     /**
      * 二级标题

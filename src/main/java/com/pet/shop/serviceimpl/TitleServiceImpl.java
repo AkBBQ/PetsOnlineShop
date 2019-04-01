@@ -9,8 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 分类服务实现类
@@ -21,10 +24,13 @@ import java.util.List;
 @Service
 public class TitleServiceImpl implements TitleService {
     @Autowired
-    FirstTitleMapper firstTitleMapper;
+    private FirstTitleMapper firstTitleMapper;
 
     @Autowired
-    SecondTitleMapper secondTitleMapper;
+    private SecondTitleMapper secondTitleMapper;
+
+    @Autowired
+    private TitleService titleService;
 
     @Override
     public void addFirst(FirstTitle firstTitle) {
@@ -103,6 +109,14 @@ public class TitleServiceImpl implements TitleService {
         List<SecondTitle> secondTitles = null;
         try {
              secondTitles = secondTitleMapper.queryAll();
+             //补全显示的父类名称
+            secondTitles.forEach(x->{
+                if(Objects.nonNull(firstTitleMapper.queryOne(x.getRefId())) && !StringUtils.isEmpty(firstTitleMapper.queryOne(x.getRefId()).getName())){
+                x.setRefIdDesc(firstTitleMapper.queryOne(x.getRefId()).getName());
+                }else{
+                    x.setRefIdDesc("一级标题不存或者已经被删除");
+                }
+            });
         } catch (Exception e) {
             log.error("查询全部二级标题失败",e.getMessage());
             e.printStackTrace();
@@ -120,6 +134,26 @@ public class TitleServiceImpl implements TitleService {
             e.printStackTrace();
         }
         return secondTitle;
+    }
+
+    @Override
+    public List<SecondTitle> querySecondByName(String name) {
+        if(StringUtils.isEmpty(name)){
+           return titleService.queryAllSecond();
+        }
+        try {
+            List<SecondTitle> secondTitles = secondTitleMapper.queryByName(name);
+            if(Objects.isNull(secondTitles)){
+                return Collections.EMPTY_LIST;
+            }
+            secondTitles.stream().forEach(x->{
+                x.setRefIdDesc(firstTitleMapper.queryOne(x.getRefId()).getName());
+            });
+            return secondTitles;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Collections.EMPTY_LIST;
     }
 
     @Override

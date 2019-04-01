@@ -3,6 +3,7 @@ package com.pet.shop.controller;
 import com.pet.shop.pojo.FirstTitle;
 import com.pet.shop.pojo.SecondTitle;
 import com.pet.shop.service.TitleService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+
 
 /**
  * 标题控制器
@@ -22,8 +24,16 @@ import java.util.List;
 @RequestMapping("/Title")
 public class TitleController {
     @Autowired
-    TitleService titleService;
+    private TitleService titleService;
 
+
+    /**
+     * 新增一级分类页面控制器
+     */
+    @RequestMapping("/adminClassAdd")
+    public String adminClassAdd(){
+        return "admin/class-add";
+    }
 
     /**
      * 新增一级标题
@@ -40,8 +50,9 @@ public class TitleController {
      * @param
      */
     @RequestMapping("/queryAllFirst")
-    public List<FirstTitle> queryAllFirst(){
-        return titleService.queryAllFirst();
+    public String queryAllFirst(Model model){
+        model.addAttribute("FirstTitle",titleService.queryAllFirst());
+        return "admin/class";
     }
 
     /**
@@ -61,15 +72,16 @@ public class TitleController {
      */
     @GetMapping("/beforeUpdate")
     public String beforeUpdate(Integer id, Model model){
-        model.addAttribute("info",titleService.queryOneSecond(id));
-        return "admin/class-add";
+        model.addAttribute("info",titleService.queryOneFirst(id));
+        return "admin/class-update";
     }
 
     /**
      * 修改一级标题
      * @param
      */
-    @RequestMapping("/updateStatusFirst")
+    @ResponseBody
+    @RequestMapping("/updateFirst")
     public void updateStatusFirst(FirstTitle firstTitle){
          titleService.updateFirst(firstTitle);
     }
@@ -85,11 +97,24 @@ public class TitleController {
     }
 
     /**
+     * 新增前跳转页面带上父类ID
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/beforeAddSecond")
+    public String beforeAddSecond(Integer id,Model model){
+        model.addAttribute("FirstId",id);
+        return "admin/class-second-add";
+    }
+
+    /**
      * 新增二级标题
      * @param secondTitle
      */
+    @ResponseBody
     @RequestMapping("/addSecond")
-    public void addFitst(SecondTitle secondTitle){
+    public void addSecond(SecondTitle secondTitle){
         titleService.addSecond(secondTitle);
     }
 
@@ -98,8 +123,9 @@ public class TitleController {
      * @param
      */
     @RequestMapping("/queryAllSecond")
-    public List<SecondTitle> queryAllSecond(){
-        return titleService.queryAllSecond();
+    public String queryAllSecond(Model model){
+        model.addAttribute("SecondTitle",titleService.queryAllSecond());
+        return "admin/class-second";
     }
 
     /**
@@ -112,10 +138,36 @@ public class TitleController {
     }
 
     /**
+     * 根据二级标题模糊查询
+     * @param name
+     * @param model
+     * @return
+     */
+    @RequestMapping("/querySecondByname")
+    public String querySecondByname(String name, Model model){
+     model.addAttribute("SecondTitle",titleService.querySecondByName(name));
+        return "admin/class-second";
+    }
+
+
+    /**
+     * 修改二级标题视图
+     * @param id 主键ID
+     * @param model
+     * @return
+     */
+    @RequestMapping("/beforeUpdateSecond")
+    public String beforeUpdateSecond(Integer id,Model model){
+        model.addAttribute("info",titleService.queryOneSecond(id));
+        return "admin/class-second-update";
+    }
+
+    /**
      * 修改二级标题
      * @param
      */
-    @RequestMapping("/updateStatusSecond")
+    @ResponseBody
+    @RequestMapping("/updateSecond")
     public void updateStatusSecond(SecondTitle secondTitle){
         titleService.updateSecond(secondTitle);
     }
@@ -125,6 +177,7 @@ public class TitleController {
      * 根据ID删除
      * @param id
      */
+    @ResponseBody
     @RequestMapping("/deleteOneSecond")
     public void deleteOne(Integer id){
         titleService.deleteOneSecond(id);

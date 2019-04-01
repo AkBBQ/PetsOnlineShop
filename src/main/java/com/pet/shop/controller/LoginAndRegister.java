@@ -22,10 +22,10 @@ import javax.servlet.http.HttpSession;
 public class LoginAndRegister {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     /**
      * 用户登录

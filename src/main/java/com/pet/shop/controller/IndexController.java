@@ -4,7 +4,6 @@ import com.pet.shop.service.TitleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -75,23 +74,6 @@ public class IndexController {
     @RequestMapping("adminWelcome")
     public String adminWelcome(){
         return "admin/welcome";
-    }
-
-    /**
-     * 分类管理
-     */
-    @RequestMapping("adminClass")
-    public String adminClass(Model model){
-        model.addAttribute("FirstTitle",titleService.queryAllFirst());
-        return "admin/class";
-    }
-
-    /**
-     * 新增一级分类
-     */
-    @RequestMapping("/adminClassAdd")
-    public String adminClassAdd(){
-        return "admin/class-add";
     }
 
 }

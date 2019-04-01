@@ -62,6 +62,13 @@ public interface TitleService {
     SecondTitle queryOneSecond(Integer id);
 
     /**
+     * 根据二级标题模糊查询
+     * @param name
+     * @return
+     */
+    List<SecondTitle> querySecondByName(String name);
+
+    /**
      * 根据ID修改标题状态
      * @param secondTitle
      */

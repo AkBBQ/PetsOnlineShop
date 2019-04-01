@@ -39,7 +39,7 @@ public interface FirstTitleMapper {
      * 根据ID修改
      * @param firstTitle
      */
-    @Update("update first_title set name =#{name},status =#{status} where id={id}")
+    @Update("update first_title set name =#{name},status =#{status} where id=#{id}")
     void update(FirstTitle firstTitle);
 
     /**

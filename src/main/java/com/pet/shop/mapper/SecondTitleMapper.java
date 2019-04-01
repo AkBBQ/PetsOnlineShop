@@ -17,7 +17,7 @@ public interface SecondTitleMapper {
      * 新增一个二级标题
      * @param secondTitle
      */
-    @Insert("INSERT into second_title(ref_id,name,status) values(#{refID},#{name},#{status})")
+    @Insert("INSERT into second_title(ref_id,name,status) values(#{refId},#{name},#{status})")
     void add(SecondTitle secondTitle);
 
     /**
@@ -36,13 +36,21 @@ public interface SecondTitleMapper {
     SecondTitle queryOne(Integer id);
 
     /**
+     * 根据二级标题模糊查询
+     * @param name
+     * @return
+     */
+    @Select("select * from second_title where name like concat('%',#{name},'%')")
+    List<SecondTitle> queryByName(String name);
+
+    /**
      * 根据ID修改标题状态
      * @param secondTitle
      */
-    @Update("update second_title set name={name}, status =#{status} where id={id}")
+    @Update("update second_title set name=#{name}, status =#{status} where id=#{id}")
     void update(SecondTitle secondTitle);
 
 
-    @Delete("delete from second_titile where id=#{id} ")
+    @Delete("delete from second_title where id=#{id} ")
     void deleteOne(Integer id);
 }

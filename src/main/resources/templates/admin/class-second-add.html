@@ -1,8 +1,7 @@
 <html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
-  
   <head>
     <meta charset="UTF-8" />
-    <title>编辑一级标题</title>
+    <title>新增二级标题</title>
     <meta name="renderer" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -24,50 +23,39 @@
         <form class="layui-form">
           <div class="layui-form-item">
               <label for="name" class="layui-form-label">
-              <span class="x-red">*</span>一级标题名
-          </label>
+                  <span class="x-red">*</span>二级标题名
+              </label>
               <div class="layui-input-inline">
-                  <input type="hidden" name="id" th:value="${info.id}" id="id" />
-
-                  <input type="text" id="name" name="name" th:value="${info.name}" required="" lay-verify="required"
-                         autocomplete="off" class="layui-input" />
+                  <input type="hidden" name="refId" th:value="${FirstId}" id="refId" />
+                  <input type="text" id="name" name="name" required="" lay-verify="required"
+                  autocomplete="off" class="layui-input" />
+              </div>
+              <div class="layui-form-mid layui-word-aux">
               </div>
           </div>
 
-              <div class="layui-form-item">
-              <label for="name" class="layui-form-label">
-                  <span class="x-red">*</span>启用状态
-              </label>
-              <div class="layui-input-inline">
-                 <select id="status" name="status">
-                     <option value="关闭">关闭</option>
-                     <option value="启用">启用</option>
-                 </select>
-              </div>
-              </div>
-
 
           <div class="layui-form-item">
-              <button  class="layui-btn" lay-filter="add" lay-submit="" id="update">
-                  修改
+              <button  class="layui-btn" lay-filter="add" lay-submit="" id="add">
+                  增加
               </button>
           </div>
       </form>
     </div>
 
   <script>
-      $('#update').click(function (e) {
+      $('#add').click(function (e) {
           e.preventDefault();
           $.ajax({
               type:"post",
-              url:'/Title/updateFirst',
-              data:{id:$('#id').val(),name:$('#name').val(),status:$('#status').val()=='启用' ? 1 : 0 },
+              url:'/Title/addSecond',
+              data:{refId:$('#refId').val(),name:$('#name').val()},
               success:function(){
-                  layer.msg("修改成功");
-                  window.location.href = '/adminClassAdd';
+                  layer.msg("新增成功");
+                  window.location.href = "/Title/queryAllSecond";
               },
               error:function(){
-                  layer.msg("请求失败")
+                  layer.msg("新增失败")
               }
           })
       })
