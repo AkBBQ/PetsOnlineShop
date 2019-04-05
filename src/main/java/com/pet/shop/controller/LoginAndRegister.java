@@ -1,7 +1,7 @@
 package com.pet.shop.controller;
 
 import com.pet.shop.mapper.UserMapper;
-import com.pet.shop.pojo.User;
+import com.pet.shop.model.User;
 import com.pet.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

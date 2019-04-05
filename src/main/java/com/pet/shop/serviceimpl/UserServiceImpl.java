@@ -1,7 +1,7 @@
 package com.pet.shop.serviceimpl;
 
 import com.pet.shop.mapper.UserMapper;
-import com.pet.shop.pojo.User;
+import com.pet.shop.model.User;
 import com.pet.shop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

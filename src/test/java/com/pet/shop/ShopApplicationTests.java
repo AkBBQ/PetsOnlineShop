@@ -1,9 +1,11 @@
 package com.pet.shop;
 
+import com.pet.shop.mapper.GoodsMapper;
 import com.pet.shop.mapper.SecondTitleMapper;
 import com.pet.shop.mapper.UserMapper;
-import com.pet.shop.pojo.SecondTitle;
-import com.pet.shop.pojo.User;
+import com.pet.shop.model.Goods;
+import com.pet.shop.model.SecondTitle;
+import com.pet.shop.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,13 @@ import java.util.List;
 public class ShopApplicationTests {
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Autowired
-    SecondTitleMapper secondTitleMapper;
+    private SecondTitleMapper secondTitleMapper;
+
+    @Autowired
+    private GoodsMapper goodsMapper;
 
     @Test
     public void contextLoads() {
@@ -42,6 +47,16 @@ public class ShopApplicationTests {
     public void test2(){
         List<SecondTitle> ss = secondTitleMapper.queryByName("宠");
         System.out.println(ss.toString());
+    }
+
+    /**
+     * 复杂sql查询
+     */
+    @Test
+    public void tes(){
+        Goods goods = new Goods();
+        List<Goods> goods1 = goodsMapper.queryAllgoods(goods);
+        System.out.println(goods1.toString());
     }
 
 }

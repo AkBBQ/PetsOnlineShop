@@ -1,7 +1,7 @@
 package com.pet.shop.service;
 
-import com.pet.shop.pojo.FirstTitle;
-import com.pet.shop.pojo.SecondTitle;
+import com.pet.shop.model.FirstTitle;
+import com.pet.shop.model.SecondTitle;
 
 import java.util.List;
 

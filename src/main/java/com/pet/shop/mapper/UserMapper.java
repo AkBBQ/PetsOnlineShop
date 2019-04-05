@@ -1,6 +1,6 @@
 package com.pet.shop.mapper;
 
-import com.pet.shop.pojo.User;
+import com.pet.shop.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

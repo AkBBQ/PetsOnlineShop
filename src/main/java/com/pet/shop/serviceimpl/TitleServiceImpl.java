@@ -2,8 +2,8 @@ package com.pet.shop.serviceimpl;
 
 import com.pet.shop.mapper.FirstTitleMapper;
 import com.pet.shop.mapper.SecondTitleMapper;
-import com.pet.shop.pojo.FirstTitle;
-import com.pet.shop.pojo.SecondTitle;
+import com.pet.shop.model.FirstTitle;
+import com.pet.shop.model.SecondTitle;
 import com.pet.shop.service.TitleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

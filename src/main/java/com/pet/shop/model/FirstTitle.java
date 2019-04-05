@@ -1,30 +1,22 @@
-package com.pet.shop.pojo;
+package com.pet.shop.model;
 
 import lombok.Data;
 
 /**
- * 二级标题实体类
+ * 一级标题实体类
  * @author 昂太
  *
  */
 
 @Data
-public class SecondTitle {
+public class FirstTitle {
     /**
      * id
      */
     private Integer id;
-    /**
-     * 关联的一级标题ID
-     */
-    private Integer refId;
-    /**
-     * 一级标题对应的名称
-     */
-    private String refIdDesc;
 
     /**
-     * 二级标题
+     * 一级标题
      */
     private String name;
     /**

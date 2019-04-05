@@ -1,4 +1,4 @@
-package com.pet.shop.pojo;
+package com.pet.shop.model;
 
 import lombok.Data;
 

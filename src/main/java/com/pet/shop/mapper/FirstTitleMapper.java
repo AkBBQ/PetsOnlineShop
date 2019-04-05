@@ -1,6 +1,6 @@
 package com.pet.shop.mapper;
 
-import com.pet.shop.pojo.FirstTitle;
+import com.pet.shop.model.FirstTitle;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

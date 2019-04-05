@@ -1,0 +1,89 @@
+package com.pet.shop.mapper;
+
+import com.pet.shop.model.Goods;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
+
+/**
+ * 商品Mapper
+ * @author 昂太 (angtai@maihaoche.com)
+ *
+ */
+@Mapper
+public interface GoodsMapper {
+
+    /**
+     * 查询全部商品
+     * @param goods
+     * @return
+     */
+    @Select({
+    "<script>",
+    "select * from goods",
+    "<where>",
+
+    "<if test='name != null'>",
+    "and name = #{name}",
+    "</if>",
+
+    "<if test='id != null'>",
+    "and id = #{id}",
+    "</if>",
+
+    "<if test='sex != null'>",
+    "and sex = #{sex}",
+    "</if>",
+
+    "<if test='isRecommend != null'>",
+    "and isRecommend = #{isRecommend}",
+    "</if>",
+
+    "</where>",
+    "</script>"})
+    List<Goods> queryAllgoods(Goods goods);
+
+    /**
+     * 新增商品
+     * @param goods
+     */
+    @Insert("insert into goods values() ")
+    void addGood(Goods goods);
+
+    /**
+     * 删除商品
+     * @param id
+     */
+    @Delete("delete from goods where id=#{id}")
+    void deleteOneGood(Integer id);
+
+    /**
+     * 更新商品
+     * @param goods
+     */
+    @Update({
+            "<script>",
+            "UPDATE  goods",
+            "<set>",
+
+            "<if test='name != null'>",
+            " name = #{name}",
+            "</if>",
+
+            "<if test='sex != null'>",
+            "sex = #{sex}",
+            "</if>",
+
+            "<if test='age != null'>",
+            "age = #{age}",
+            "</if>",
+
+            "<if test='isRecommend != null'>",
+            "isRecommend = #{isRecommend}",
+            "</if>",
+
+            "</set>",
+            "where id=#{id}",
+            "</script>"})
+    void update(Goods goods);
+}

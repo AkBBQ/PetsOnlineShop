@@ -1,6 +1,6 @@
 package com.pet.shop.service;
 
-import com.pet.shop.pojo.User;
+import com.pet.shop.model.User;
 
 /**
  * 用户登录注册服务
