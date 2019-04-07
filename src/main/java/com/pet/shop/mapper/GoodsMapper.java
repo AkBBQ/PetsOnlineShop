@@ -47,7 +47,8 @@ public interface GoodsMapper {
      * 新增商品
      * @param goods
      */
-    @Insert("insert into goods values() ")
+    @Insert("insert into goods(name,price,sup_type,sub_type,isRecommend,sex,image,age)" +
+            "values(#{name},#{price},#{supType},#{subType},#{isRecommend},#{sex},#{image},#{age}) ")
     void addGood(Goods goods);
 
     /**

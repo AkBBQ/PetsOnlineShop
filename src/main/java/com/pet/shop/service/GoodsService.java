@@ -12,5 +12,14 @@ public interface GoodsService {
      */
     PageInfo<Goods> queryAllGoods(Goods goods);
 
+    /**
+     * 根据主键ID删除商品
+     * @param id
+     */
     void deleteOneGood(Integer id);
+
+    /**
+     * 添加商品
+     */
+    void addGoods(Goods goods);
 }

@@ -55,6 +55,13 @@ public interface TitleService {
     List<SecondTitle> queryAllSecond();
 
     /**
+     * 通过父标题ID查询全部二级标题
+     * @return
+     */
+    List<SecondTitle> queryAllSecondByTitleId(Integer id);
+
+
+    /**
      * 根据二级标题ID查询详情
      * @param id
      * @return

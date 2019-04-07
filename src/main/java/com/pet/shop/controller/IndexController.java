@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    @Autowired
-    TitleService titleService;
-
     /**
      * 首页视图
      */
@@ -74,6 +71,14 @@ public class IndexController {
     @RequestMapping("adminWelcome")
     public String adminWelcome(){
         return "admin/welcome";
+    }
+
+    /**
+     * 商品添加界面
+     */
+    @RequestMapping("/addGoods")
+    public String goodsAdd(){
+        return "admin/goods-add";
     }
 
 }

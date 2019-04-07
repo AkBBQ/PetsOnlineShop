@@ -125,6 +125,18 @@ public class TitleServiceImpl implements TitleService {
     }
 
     @Override
+    public List<SecondTitle> queryAllSecondByTitleId(Integer id) {
+        List<SecondTitle> secondTitles = null;
+        try {
+            secondTitles = secondTitleMapper.queryAllByFirstId(id);
+        } catch (Exception e) {
+            log.error("根据一级标题ID查询二级标题失败!",id);
+            e.printStackTrace();
+        }
+        return secondTitles;
+    }
+
+    @Override
     public SecondTitle queryOneSecond(Integer id) {
         Assert.notNull(id,"查询二级标题入参ID不能为空");
         SecondTitle secondTitle = null;

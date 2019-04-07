@@ -36,6 +36,14 @@ public interface SecondTitleMapper {
     SecondTitle queryOne(Integer id);
 
     /**
+     * 根据父级Id查询二级标题ID查询详情
+     * @param id
+     * @return
+     */
+    @Select("select * from  second_title where  ref_id=#{refId} ")
+    List<SecondTitle> queryAllByFirstId(Integer id);
+
+    /**
      * 根据二级标题模糊查询
      * @param name
      * @return

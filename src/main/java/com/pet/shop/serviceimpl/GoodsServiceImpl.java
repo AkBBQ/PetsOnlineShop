@@ -5,20 +5,18 @@ import com.github.pagehelper.PageInfo;
 import com.pet.shop.mapper.FirstTitleMapper;
 import com.pet.shop.mapper.GoodsMapper;
 import com.pet.shop.mapper.SecondTitleMapper;
-import com.pet.shop.model.FirstTitle;
 import com.pet.shop.model.Goods;
-import com.pet.shop.model.SecondTitle;
 import com.pet.shop.service.GoodsService;
+import com.pet.shop.service.upload;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 商品服务类实现类
@@ -34,6 +32,8 @@ public class GoodsServiceImpl implements GoodsService {
     private FirstTitleMapper firstTitleMapper;
     @Autowired
     private SecondTitleMapper secondTitleMapper;
+    @Autowired
+    private upload upload;
 
     @Override
     public PageInfo<Goods> queryAllGoods(Goods goods) {
@@ -69,5 +69,18 @@ public class GoodsServiceImpl implements GoodsService {
             log.error("根据ID={}删除失败",id,e);
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void addGoods(Goods goods) {
+        Assert.notNull(goods,"新增商品不能为空");
+        try {
+            goodsMapper.addGood(goods);
+        } catch (Exception e) {
+            log.error("新增商品失败,入参{}",goods,e);
+            e.printStackTrace();
+        }
+
+
     }
 }

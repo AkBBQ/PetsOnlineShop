@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 /**
@@ -178,5 +181,15 @@ public class TitleController {
     @RequestMapping("/deleteOneSecond")
     public void deleteOne(Integer id){
         titleService.deleteOneSecond(id);
+    }
+
+    /**
+     * 二级联动
+     * @param id 父标题ID
+     */
+    @ResponseBody
+    @RequestMapping(value = "/queryAllSecondByTitleId" ,method = RequestMethod.GET)
+    public List<SecondTitle> queryAllSecondByTitleId(Integer id){
+      return titleService.queryAllSecondByTitleId(id);
     }
 }

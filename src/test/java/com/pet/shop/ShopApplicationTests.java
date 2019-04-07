@@ -59,4 +59,19 @@ public class ShopApplicationTests {
         System.out.println(goods1.toString());
     }
 
+    @Test
+    public void addGood(){
+        Goods goods = new Goods();
+        goods.setName("拉布拉多");
+        goods.setPrice("1200");
+        goods.setSupType(1);
+        goods.setSubType(1);
+        goods.setIsRecommend(1);
+        goods.setSex(1);
+        goods.setImage("拉布拉多的照片");
+        goods.setAge(12);
+
+        goodsMapper.addGood(goods);
+    }
+
 }
