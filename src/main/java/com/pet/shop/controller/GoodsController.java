@@ -13,8 +13,8 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -74,20 +74,21 @@ public class GoodsController {
      * 新增商品
      */
     @RequestMapping("/addGoods")
-    public void addGoods(@RequestParam("name") String name,
-                         @RequestParam("price") String price,
-                         @RequestParam("supType") Integer supType,
-                         @RequestParam("subType") Integer subType,
-                         @RequestParam("isRecommend") Integer isRecommend,
-                         @RequestParam("sex") Integer sex,
-                         @RequestParam("age") Integer age,
-                         @RequestParam("myFile") File file ){
+    public String addGoods(
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam("name") String name,
+            @RequestParam("price") String price,
+            @RequestParam("supType") Integer supType,
+            @RequestParam("subType") Integer subType,
+            @RequestParam("isRecommend") Integer isRecommend,
+            @RequestParam("sex") Integer sex,
+            @RequestParam("age") Integer age
+    ) {
         //图片名 sj+系统时间戳
-        String imageName ="sj"+System.currentTimeMillis();
-        //上传图片
+       String imageName ="sj"+System.currentTimeMillis();
         try {
-            upload.uoload(file,imageName);
-
+            byte[] bytes = file.getBytes();
+            upload.upload(bytes,imageName);
             Goods goods = new Goods();
             goods.setName(name);
             goods.setPrice(price);
@@ -101,7 +102,7 @@ public class GoodsController {
         } catch (Exception e) {
           log.error("新增商品失败",e);
         }
-
+        return "redirect:/Goods/queryAllGoods";
+        }
     }
 
-}

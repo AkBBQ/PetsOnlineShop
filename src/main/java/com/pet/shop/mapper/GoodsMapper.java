@@ -23,7 +23,7 @@ public interface GoodsMapper {
     "select * from goods",
     "<where>",
 
-    "<if test='name != null'>",
+    "<if test=\"name != null and name !='' \">",
     "and name = #{name}",
     "</if>",
 

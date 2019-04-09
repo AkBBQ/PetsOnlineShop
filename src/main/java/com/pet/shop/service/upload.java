@@ -1,6 +1,5 @@
 package com.pet.shop.service;
 
-import java.io.File;
 
 /**
  * 七牛云图片上传
@@ -9,9 +8,15 @@ import java.io.File;
  */
 public interface upload {
     /**
-     * 图片上传到七牛云
-     * @param file 文件
-     * @param name 文件名
+     * 七牛云上传
+     * @param data 字节流
+     * @param name
      */
-    void uoload(File file,String name);
+    void upload(byte[] data,String name);
+
+    /**
+     * 七牛云上传
+     * @param filePath 文件绝对路劲
+     */
+    void upload(String filePath,String name);
 }

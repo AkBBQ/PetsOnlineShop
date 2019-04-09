@@ -12,7 +12,6 @@ import com.qiniu.util.Auth;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 
 /**
  * All rights Reserved, Designed By www.maihaoche.com
@@ -23,7 +22,7 @@ import java.io.File;
  * @Copyright: 2017-2020 www.maihaoche.com Inc. All rights reserved.
  */
 @Service
-public class uploadImpl implements upload {
+public  class uploadImpl implements upload {
     @Value("${qiniu.AccessKey}")
     private String accessKey;
 
@@ -34,17 +33,14 @@ public class uploadImpl implements upload {
     private String bucket;
 
     @Override
-    public void uoload(File file,String name) {
+    public void upload(byte[] data, String name) {
         //构造一个带指定Zone对象的配置类
         Configuration cfg = new Configuration(Zone.zone0());
 
         UploadManager uploadManager = new UploadManager(cfg);
 
-        Auth auth = Auth.create(accessKey, secretKey);
-        String upToken = auth.uploadToken(bucket);
-
         try {
-            Response response = uploadManager.put(file, name, upToken);
+            Response response = uploadManager.put(data, name, this.getToken());
             //解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
             System.out.println(putRet.key);
@@ -59,5 +55,38 @@ public class uploadImpl implements upload {
             }
         }
 
+    }
+
+    @Override
+    public void upload(String filePath,String name) {
+        //构造一个带指定Zone对象的配置类
+        Configuration cfg = new Configuration(Zone.zone0());
+
+        UploadManager uploadManager = new UploadManager(cfg);
+
+        try {
+            Response response = uploadManager.put(filePath, name, this.getToken());
+            //解析上传成功的结果
+            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+            System.out.println(putRet.key);
+            System.out.println(putRet.hash);
+        } catch (QiniuException ex) {
+            Response r = ex.response;
+            try {
+                System.err.println(r.bodyString());
+            } catch (QiniuException ex2) {
+                throw new RuntimeException("上传到七牛云失败!");
+            }
+        }
+    }
+
+    /**
+     * 获取上传凭证
+     * @return
+     */
+    private String getToken(){
+        Auth auth = Auth.create(accessKey, secretKey);
+        String upToken = auth.uploadToken(bucket);
+        return upToken;
     }
 }
