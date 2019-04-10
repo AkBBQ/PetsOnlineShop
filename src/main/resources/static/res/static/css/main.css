@@ -60,7 +60,7 @@ i{font-style: normal;}
 .content .category-tab-content .nav-con .nav-item  p a{font-size: 12px; color: #7d7e7f; margin-left: 4px; line-height: 18px;}
 .content .category-tab-content .nav-con .nav-item i{position: absolute; right: 2px; top: 16px; font-size: 12px; }
 .content .category-tab-content .nav-con .nav-item  p a:hover{color:#ff5500;}
-.content .category-banner{background:#ffc6dd;}
+.content .category-banner{background: #e7efff;}
 .content .floors .sk{height: 300px; padding:80px 0 70px 0; background: #fff;}
 .content .floors .sk_hd{float: left; width: 225px; height: 300px;}
 .content .floors .sk_bd{float: left; width: 974px; height: 298px; border:1px solid #eaeaea; border-left: 0;}
@@ -85,7 +85,7 @@ i{font-style: normal;}
 .content .hot-recommend-con .hot-con1 .item1 .btm-img{position: absolute; bottom: 0; left: 0;}
 .content .product-cont{padding:33px 0 60px 0;}
 .content .product-cont .product-item{padding-top: 70px;}
-.content .product-cont .product-item .left-title{float: left; height: 400px; width: 198px; text-align: center;}
+.content .product-cont .product-item .left-title{float: left; height: 600px; width: 198px; text-align: center;}
 .content .product-cont .product-item1 .left-title{background: #c7b6d7;}
 .content .product-cont .product-item2 .left-title{background: #c0e2ef;}
 .content .product-cont .product-item3 .left-title{background: #f6d77d;}

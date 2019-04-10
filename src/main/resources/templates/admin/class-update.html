@@ -64,7 +64,7 @@
               data:{id:$('#id').val(),name:$('#name').val(),status:$('#status').val()=='启用' ? 1 : 0 },
               success:function(){
                   layer.msg("修改成功");
-                  window.location.href = '/adminClassAdd';
+                  window.location.href = '/Title/queryAllFirst';
               },
               error:function(){
                   layer.msg("请求失败")

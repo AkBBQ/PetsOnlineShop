@@ -1,9 +1,12 @@
 package com.pet.shop.controller;
 
-import com.pet.shop.service.TitleService;
+import com.pet.shop.model.Goods;
+import com.pet.shop.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -16,12 +19,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    @Autowired
+    private GoodsService goodsService;
+
     /**
      * 首页视图
      */
     @RequestMapping("/")
-    public String  hello(){
+    public String  hello(Model model){
         log.info("准备进入首页！");
+        model.addAttribute("Recommend",goodsService.queryAllGoodsByRecommend());
         return "index";
     }
 
@@ -74,11 +81,23 @@ public class IndexController {
     }
 
     /**
-     * 商品添加界面
+     * 购物车页面
      */
-    @RequestMapping("/addGoods")
-    public String goodsAdd(){
-        return "admin/goods-add";
+    @RequestMapping("/goToShopCart")
+    public String goToShopCart(){
+        return "shopcart";
+    }
+
+    /**
+     * 商品详情页面
+     */
+    @RequestMapping("/goodsInfo")
+    public String goodsInfo(Integer id,Model model){
+        Assert.notNull(id,"商品Id不能为空");
+        Goods goods = new Goods();
+        goods.setId(id);
+        model.addAttribute("goodInfo",goodsService.queryAllGoods(goods).getList());
+        return "goodinfo";
     }
 
 }

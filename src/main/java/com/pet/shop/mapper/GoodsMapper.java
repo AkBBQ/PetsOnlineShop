@@ -43,6 +43,14 @@ public interface GoodsMapper {
     "</script>"})
     List<Goods> queryAllgoods(Goods goods);
 
+
+    /**
+     * 查询全部推荐商品
+     * @param
+     * @return
+     */
+    @Select("select * from goods where isRecommend = 1")
+    List<Goods> queryAllgoodsByRecommend();
     /**
      * 新增商品
      * @param goods

@@ -2,6 +2,8 @@ package com.pet.shop.service;
 
 import com.github.pagehelper.PageInfo;
 import com.pet.shop.model.Goods;
+
+import java.util.List;
 /**
  * 商品服务类
  * @author 昂太 (angtai@maihaoche.com)
@@ -22,4 +24,9 @@ public interface GoodsService {
      * 添加商品
      */
     void addGoods(Goods goods);
+
+    /**
+     * 查询所有推荐商品(首页显示使用)
+     */
+    List<Goods> queryAllGoodsByRecommend();
 }

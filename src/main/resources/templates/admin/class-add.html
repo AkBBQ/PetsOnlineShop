@@ -51,6 +51,7 @@
               data:{name:$('#name').val()},
               success:function(){
                   layer.msg("新增成功");
+                  window.location.href = '/Title/queryAllFirst';
               },
               error:function(){
                   layer.msg("新增失败")
