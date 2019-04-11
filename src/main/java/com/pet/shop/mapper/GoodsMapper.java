@@ -51,6 +51,15 @@ public interface GoodsMapper {
      */
     @Select("select * from goods where isRecommend = 1")
     List<Goods> queryAllgoodsByRecommend();
+
+    /**
+     * 查询5个不同类型的推荐
+     * @param supType
+     * @return
+     */
+    @Select("select * from goods where sup_type = #{supType}  limit 0,5")
+    List<Goods> queryDiffRecommendByType(Integer supType);
+
     /**
      * 新增商品
      * @param goods

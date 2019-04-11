@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 商品Controller
@@ -81,8 +82,8 @@ public class GoodsController {
             @RequestParam("supType") Integer supType,
             @RequestParam("subType") Integer subType,
             @RequestParam("isRecommend") Integer isRecommend,
-            @RequestParam("sex") Integer sex,
-            @RequestParam("age") Integer age
+            @RequestParam(value = "sex" , required = false) Integer sex,
+            @RequestParam(value = "age" , required = false) Integer age
     ) {
         //图片名 sj+系统时间戳
        String imageName ="sj"+System.currentTimeMillis();
@@ -95,8 +96,12 @@ public class GoodsController {
             goods.setSupType(supType);
             goods.setSubType(subType);
             goods.setIsRecommend(isRecommend);
-            goods.setSex(sex);
-            goods.setAge(age);
+            if(Objects.nonNull(sex)){
+                goods.setSex(sex);
+            }
+            if(Objects.nonNull(age)){
+                goods.setAge(age);
+            }
             goods.setImage(imageName);
             goodsService.addGoods(goods);
         } catch (Exception e) {

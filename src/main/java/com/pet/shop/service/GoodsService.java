@@ -29,4 +29,9 @@ public interface GoodsService {
      * 查询所有推荐商品(首页显示使用)
      */
     List<Goods> queryAllGoodsByRecommend();
+
+    /**
+     * 查询5个不同类型的推荐
+     */
+    List<Goods> queryDiffRecommendByType(Integer supType);
 }

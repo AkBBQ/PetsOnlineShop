@@ -28,12 +28,19 @@ public class IndexController {
     @RequestMapping("/")
     public String  hello(Model model){
         log.info("准备进入首页！");
+        //全部推荐
         model.addAttribute("Recommend",goodsService.queryAllGoodsByRecommend());
+        //宠物狗推荐
+        model.addAttribute("PetsRecommend",goodsService.queryDiffRecommendByType(1));
+        //宠物粮食推荐
+        model.addAttribute("PetsFood",goodsService.queryDiffRecommendByType(2));
+        //宠物玩具推荐
+        model.addAttribute("PetsToys",goodsService.queryDiffRecommendByType(3));
         return "index";
     }
 
     /**
-     * 登录视图
+     * 用户登录视图
      */
     @RequestMapping("/login")
     public  String login(){

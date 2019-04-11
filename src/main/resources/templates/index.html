@@ -17,10 +17,10 @@
         </p>
         <div class="sn-quick-menu">
             <div class="login"><a href="login.html">欢迎您</a></div>
-            <div class="login"><a href="login.html">登录</a></div>
+            <div class="login"><a href="/login">登录</a></div>
             <div class="login"><a href="/goToRegister">注册</a></div>
 
-            <div class="sp-cart"><a href="/goToShopCart">购物车</a><span>2</span></div>
+            <div class="sp-cart"><a href="/Cart/queryCart">购物车</a><span></span></div>
         </div>
     </div>
 </div>
@@ -170,12 +170,8 @@
             </div>
             <div class="right-cont">
                 <a href="javascript:;" class="top-img"><img src="../res/static/img/petBanner.jpeg" width="1000px"/></a>
-                <div class="img-box">
-                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                <div class="img-box" th:each="items:${PetsRecommend}">
+                    <a th:href="@{/goodsInfo(id=${items.id})}"><img th:src="@{'http://image.husky007.top/'+${items.image}}"/></a>
                 </div>
             </div>
         </div>
@@ -186,13 +182,9 @@
                 <h5>宠物口粮</h5>
             </div>
             <div class="right-cont">
-                <a href="javascript:;" class="top-img"><img src="../res/static/img/petFoods.jpg" height="400px" width="1000px"/></a>
-                <div class="img-box">
-                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                <a href="javascript:;" class="top-img"><img src="../res/static/img/petFoods.jpg" width="1000px"  height="400px"/></a>
+                <div class="img-box" th:each="items:${PetsFood}">
+                    <a th:href="@{/goodsInfo(id=${items.id})}"><img th:src="@{'http://image.husky007.top/'+${items.image}}"/></a>
                 </div>
             </div>
         </div>
@@ -203,13 +195,9 @@
                 <h5>宠物玩具</h5>
             </div>
             <div class="right-cont">
-                <a href="javascript:;" class="top-img"><img src="../res/static/img/petGoods.jpeg" width="1000px" height="400px"/></a>
-                <div class="img-box">
-                    <a href="javascript:;"><img src="../res/static/img/s_img7.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img8.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img9.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img10.jpg"  /></a>
-                    <a href="javascript:;"><img src="../res/static/img/s_img11.jpg"  /></a>
+                <a href="javascript:;" class="top-img"><img src="../res/static/img/petGoods.jpeg" width="1000px"  height="400px"/></a>
+                <div class="img-box" th:each="items:${PetsToys}">
+                    <a th:href="@{/goodsInfo(id=${items.id})}"><img th:src="@{'http://image.husky007.top/'+${items.image}}"/></a>
                 </div>
             </div>
         </div>
@@ -224,7 +212,7 @@
 
                 <div th:each="items : ${Recommend}">
                 <div class="list-item">
-                    <a href="/goodsInfo"><img th:src="@{'http://image.husky007.top/'+${items.image}}" width="200px" height="180px"/></a>
+                    <a th:href="@{/goodsInfo(id=${items.id})}"><img th:src="@{'http://image.husky007.top/'+${items.image}}" width="200px" height="180px"/></a>
                     <p th:text="${items.name}"></p>
                     <span th:text="${'￥'+items.price}">￥</span>
                 </div>

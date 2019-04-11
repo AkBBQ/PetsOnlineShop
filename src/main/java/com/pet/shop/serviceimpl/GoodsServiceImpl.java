@@ -47,8 +47,8 @@ public class GoodsServiceImpl implements GoodsService {
             List<Goods> result = goodsMapper.queryAllgoods(goods);
             result.stream().forEach(x->{
                 //一级标题二级标题取名字
-                x.setSubTypeDesc(firstTitleMapper.queryOne(x.getSubType()).getName());
-                x.setSupTypeDesc(secondTitleMapper.queryOne(x.getSupType()).getName());
+                x.setSupTypeDesc(firstTitleMapper.queryOne(x.getSupType()).getName());
+                x.setSubTypeDesc(secondTitleMapper.queryOne(x.getSubType()).getName());
             });
             PageInfo<Goods> pageInfo =new PageInfo<>(result);
             return pageInfo;
@@ -88,6 +88,20 @@ public class GoodsServiceImpl implements GoodsService {
         List<Goods> goods = null;
         try {
              goods = goodsMapper.queryAllgoodsByRecommend();
+        } catch (Exception e) {
+            log.error("查询推荐商品失败",e);
+            e.printStackTrace();
+        }
+        return goods;
+    }
+
+    @Override
+    public List<Goods> queryDiffRecommendByType(Integer supType) {
+        Assert.notNull(supType,"一级类型不能为空");
+//        Assert.notNull(subType,"二级类型不能为空");
+        List<Goods> goods = null;
+        try {
+            goods = goodsMapper.queryDiffRecommendByType(supType);
         } catch (Exception e) {
             log.error("查询推荐商品失败",e);
             e.printStackTrace();
