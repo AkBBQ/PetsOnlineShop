@@ -1,9 +1,11 @@
 package com.pet.shop;
 
 import com.pet.shop.mapper.GoodsMapper;
+import com.pet.shop.mapper.OrderMapper;
 import com.pet.shop.mapper.SecondTitleMapper;
 import com.pet.shop.mapper.UserMapper;
 import com.pet.shop.model.Goods;
+import com.pet.shop.model.Order;
 import com.pet.shop.model.SecondTitle;
 import com.pet.shop.model.User;
 import org.junit.Test;
@@ -26,6 +28,9 @@ public class ShopApplicationTests {
 
     @Autowired
     private GoodsMapper goodsMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Test
     public void contextLoads() {
@@ -74,4 +79,20 @@ public class ShopApplicationTests {
         goodsMapper.addGood(goods);
     }
 
+    /**
+     * 新增订单
+     */
+    @Test
+    public void addOrder(){
+        Order order = new Order();
+        order.setOrderId("sss322");
+        order.setBid(1);
+        order.setId(1);
+        order.setStatus(2);
+        order.setAddress("南京");
+        order.setPhone("15251800012");
+
+//        orderMapper.add(order);
+       // System.out.println(orderMapper.queryAllOrder());
+    }
 }

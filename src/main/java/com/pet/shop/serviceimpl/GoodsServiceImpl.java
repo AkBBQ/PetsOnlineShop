@@ -98,7 +98,6 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Goods> queryDiffRecommendByType(Integer supType) {
         Assert.notNull(supType,"一级类型不能为空");
-//        Assert.notNull(subType,"二级类型不能为空");
         List<Goods> goods = null;
         try {
             goods = goodsMapper.queryDiffRecommendByType(supType);

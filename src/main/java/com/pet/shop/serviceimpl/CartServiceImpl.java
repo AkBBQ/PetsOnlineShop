@@ -65,4 +65,16 @@ public class CartServiceImpl implements CartService {
         }
         return carts;
     }
+
+    @Override
+    public void deleteCart(Integer id) {
+        Assert.notNull(id,"购物车ID不能为空");
+
+        try {
+            cartMapper.updateStatus(id);
+        } catch (Exception e) {
+            log.error("根据购物车ID逻辑删除失败",id);
+            e.printStackTrace();
+        }
+    }
 }

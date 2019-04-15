@@ -95,9 +95,11 @@
             <li><a th:href="|javascript:go(${Pages.pages})|">末页</a></li>
 
           </ul>
-        </div>
+          <div style="margin-top:10px">
+            <span th:text="${'总共'+Pages.pages+'页,'+'当前第'+Pages.pageNum+'页'}"></span>
+          </div>
       </div>
-
+      </div>
     </div>
     <script>
       layui.use('laydate', function(){

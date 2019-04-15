@@ -22,4 +22,10 @@ public interface CartService {
      * @return
      */
     List<Cart> queryAll(Integer id);
+
+    /**
+     * 逻辑删除
+     * @param id 购物车ID
+     */
+    void deleteCart(Integer id);
 }

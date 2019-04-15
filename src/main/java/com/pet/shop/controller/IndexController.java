@@ -1,7 +1,9 @@
 package com.pet.shop.controller;
 
 import com.pet.shop.model.Goods;
+import com.pet.shop.model.Order;
 import com.pet.shop.service.GoodsService;
+import com.pet.shop.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class IndexController {
 
     @Autowired
     private GoodsService goodsService;
+
+    @Autowired
+    private OrderService orderService;
 
     /**
      * 首页视图

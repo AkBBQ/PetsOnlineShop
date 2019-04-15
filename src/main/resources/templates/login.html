@@ -140,6 +140,7 @@
               success:function (data) {
                   if(data == 0){
                       layer.msg("登陆成功");
+                      window.location.href = "/";
                   }else {
                       layer.msg("用户名或者密码错误!");
                   }
