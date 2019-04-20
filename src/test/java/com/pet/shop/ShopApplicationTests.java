@@ -85,13 +85,13 @@ public class ShopApplicationTests {
     @Test
     public void addOrder(){
         Order order = new Order();
-        order.setOrderId("sss322");
-        order.setBid(1);
-        order.setId(1);
-        order.setStatus(2);
-        order.setAddress("南京");
-        order.setPhone("15251800012");
-
+        order.setOrderId("SF1555315478436");
+//        order.setBid(1);
+//        order.setId(1);
+//        order.setStatus(3);
+//        order.setAddress("南京");
+//        order.setPhone("15251800012");
+       orderMapper.queryAllOrder(order);
 //        orderMapper.add(order);
        // System.out.println(orderMapper.queryAllOrder());
     }

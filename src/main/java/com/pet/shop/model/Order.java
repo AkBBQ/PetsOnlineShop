@@ -48,6 +48,8 @@ public class Order {
      */
     private Integer status;
 
+    private String statusDesc;
+
     /**
      * 订单创建时间
      */

@@ -30,6 +30,11 @@ public class OrderInfo {
     private String name;
 
     /**
+     * 商品图片
+     */
+    private String image;
+
+    /**
      * 商品数量
      */
     private Integer num;
@@ -38,4 +43,9 @@ public class OrderInfo {
      * 商品价格
      */
     private String price;
+
+    /**
+     * 商品购买总量
+     */
+    private Integer total;
 }

@@ -2,12 +2,10 @@ package com.pet.shop.serviceimpl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.pet.shop.mapper.FirstTitleMapper;
-import com.pet.shop.mapper.GoodsMapper;
-import com.pet.shop.mapper.SecondTitleMapper;
+import com.pet.shop.mapper.*;
 import com.pet.shop.model.Goods;
+import com.pet.shop.model.OrderInfo;
 import com.pet.shop.service.GoodsService;
-import com.pet.shop.service.upload;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -32,7 +30,9 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private SecondTitleMapper secondTitleMapper;
     @Autowired
-    private upload upload;
+    private OrderInfoMapper orderInfoMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Override
     public PageInfo<Goods> queryAllGoods(Goods goods) {
@@ -106,5 +106,23 @@ public class GoodsServiceImpl implements GoodsService {
             e.printStackTrace();
         }
         return goods;
+    }
+
+    @Override
+    public List<OrderInfo> queryHot() {
+        List<OrderInfo> orderInfos = null;
+        try {
+            orderInfos = orderInfoMapper.countHot();
+            orderInfos.forEach(x->{
+                //补充商品信息
+                Goods goods = goodsMapper.queryOneGoodByGid(x.getGid());
+                x.setName(goods.getName());
+                x.setImage(goods.getImage());
+                x.setPrice(goods.getPrice());
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderInfos;
     }
 }

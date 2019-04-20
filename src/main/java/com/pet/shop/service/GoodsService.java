@@ -2,6 +2,7 @@ package com.pet.shop.service;
 
 import com.github.pagehelper.PageInfo;
 import com.pet.shop.model.Goods;
+import com.pet.shop.model.OrderInfo;
 
 import java.util.List;
 /**
@@ -34,4 +35,6 @@ public interface GoodsService {
      * 查询5个不同类型的推荐
      */
     List<Goods> queryDiffRecommendByType(Integer supType);
+
+    List<OrderInfo> queryHot();
 }

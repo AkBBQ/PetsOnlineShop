@@ -65,100 +65,89 @@
         <div class="category-banner">
         <div class="layui-carousel" id="test10" style="width: 100%">
             <div carousel-item="">
-                <div><img src="../res/static/img/banner.jpg" width="100%" /></div>
-                <div><img src="../res/static/img/banner.jpg" width="100%" /></div>
-                <div><img src="../res/static/img/banner.jpg" width="100%" /></div>
-                <div><img src="../res/static/img/banner.jpg" width="100%" /></div>
-                <div><img src="../res/static/img/banner.jpg" width="100%" /></div>
+                <span th:each="items : ${Photo}">
+                     <div><img th:src="@{'http://image.husky007.top/'+${items.image}}" width="100%"/></div>
+                </span>
+
+                <!--<div><img src="../res/static/img/banner.jpg" width="100%" /></div>-->
             </div>
         </div>
         </div>
     </div>
-    <div class="floors">
-        <div class="sk">
-            <div class="sk_inner w1200">
-                <div class="sk_hd">
-                    <a href="javascript:;">
-                        <img src="../res/static/img/s_img1.jpg" />
-                    </a>
-                </div>
-                <div class="sk_bd">
-                    <div class="layui-carousel" id="test1">
-                        <div class="carousel-item">
-                            <div class="item-box">
-                                <div class="item">
-                                    <a href="javascript:;"><img src="../res/static/img/s_img2.jpg"  /></a>
-                                    <div class="title">宝宝五彩袜棉质舒服</div>
-                                    <div class="price">
-                                        <span>￥49.00</span>
-                                        <del>￥99.00</del>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <a href="javascript:;"><img src="../res/static/img/s_img3.jpg"  /></a>
-                                    <div class="title">宝宝五彩袜棉质舒服</div>
-                                    <div class="price">
-                                        <span>￥49.00</span>
-                                        <del>￥99.00</del>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <a href="javascript:;"><img src="../res/static/img/s_img4.jpg"  /></a>
-                                    <div class="title">宝宝五彩袜棉质舒服</div>
-                                    <div class="price">
-                                        <span>￥49.00</span>
-                                        <del>￥99.00</del>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <a href="javascript:;"><img src="../res/static/img/s_img5.jpg"  /></a>
-                                    <div class="title">宝宝五彩袜棉质舒服</div>
-                                    <div class="price">
-                                        <span>￥49.00</span>
-                                        <del>￥99.00</del>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+    <!--<div class="floors">-->
+        <!--<div class="sk">-->
+            <!--<div class="sk_inner w1200">-->
+                <!--<div class="sk_hd">-->
+                    <!--<a href="javascript:;">-->
+                        <!--<img src="../res/static/img/s_img1.jpg" />-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="sk_bd">-->
+                    <!--<div class="layui-carousel" id="test1">-->
+                        <!--<div class="carousel-item">-->
+                            <!--<div class="item-box">-->
+                                <!--<div class="item">-->
+                                    <!--<a href="javascript:;"><img src="../res/static/img/s_img2.jpg"  /></a>-->
+                                    <!--<div class="title">宝宝五彩袜棉质舒服</div>-->
+                                    <!--<div class="price">-->
+                                        <!--<span>￥49.00</span>-->
+                                        <!--<del>￥99.00</del>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="item">-->
+                                    <!--<a href="javascript:;"><img src="../res/static/img/s_img3.jpg"  /></a>-->
+                                    <!--<div class="title">宝宝五彩袜棉质舒服</div>-->
+                                    <!--<div class="price">-->
+                                        <!--<span>￥49.00</span>-->
+                                        <!--<del>￥99.00</del>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="item">-->
+                                    <!--<a href="javascript:;"><img src="../res/static/img/s_img4.jpg"  /></a>-->
+                                    <!--<div class="title">宝宝五彩袜棉质舒服</div>-->
+                                    <!--<div class="price">-->
+                                        <!--<span>￥49.00</span>-->
+                                        <!--<del>￥99.00</del>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="item">-->
+                                    <!--<a href="javascript:;"><img src="../res/static/img/s_img5.jpg"  /></a>-->
+                                    <!--<div class="title">宝宝五彩袜棉质舒服</div>-->
+                                    <!--<div class="price">-->
+                                        <!--<span>￥49.00</span>-->
+                                        <!--<del>￥99.00</del>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+    <div class="product-list-box" id="product-list-box1">
+        <div class="product-list-cont w1200">
+            <h4>热销排行榜前十名</h4>
+
+
+            <div class="product-item-box layui-clear">
+
+                <div th:each="items : ${Hot}">
+                    <div class="list-item">
+                        <a th:href="@{/goodsInfo(id=${items.gid})}"><img th:src="@{'http://image.husky007.top/'+${items.image}}" width="200px" height="180px"/></a>
+                        <p th:text="${items.name}"></p>
+                        <span th:text="${'￥'+items.price}">￥</span>
+                        <span style="color:#999999;padding-left: 110px" th:text="${'已售'+items.total}">1277付款</span>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-    <div class="hot-recommend-con">
-        <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
-        <div class="hot-con1 w1200 layui-clear">
-            <div class="item">
-                <h4>热销推荐</h4>
-                <div class="big-img">
-                    <a href="javascript:;"><img src="../res/static/img/hot1.png" /></a>
-                </div>
-                <div class="small-img">
-                    <a href="javascript:;"><img src="../res/static/img/hot2.png" alt="" /></a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="top-img">
-                    <a href="javascript:;"><img src="../res/static/img/hot5.jpg"  /></a>
-                </div>
-                <div class="bottom-img">
-                    <a href="javascript:;"><img src="../res/static/img/hot6.jpg"  /></a>
-                    <a class="baby-cream" href="javascript:;"><img src="../res/static/img/hot7.jpg"  /></a>
-                </div>
-            </div>
-            <div class="item item1 margin0 padding0">
-                <a href="javascript:;"><img src="../res/static/img/hot8.jpg"  /></a>
-                <a href="javascript:;"><img class="btm-img" src="../res/static/img/hot9.jpg"  /></a>
-            </div>
-        </div>
-    </div>
-
 
 
     <div class="product-cont w1200" id="product-cont">
@@ -270,22 +259,6 @@
             ,indicator:'none'
         }
         carousel.render(option);
-        // 模版引擎导入
-        // var ins = carousel.render(option);
-        // var html = demo.innerHTML;
-        // var listCont = document.getElementById('list-cont');
-        // // console.log(layui.router("#/about.html"))
-        //  mm.request({
-        //    url: '../json/index.json',
-        //    success : function(res){
-        //      console.log(res)
-        //      listCont.innerHTML = mm.renderHtml(html,res)
-        //      ins.reload(option);
-        //    },
-        //    error: function(res){
-        //      console.log(res);
-        //    }
-        //  })
 
 
     });

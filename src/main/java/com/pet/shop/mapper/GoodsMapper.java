@@ -104,4 +104,11 @@ public interface GoodsMapper {
             "where id=#{id}",
             "</script>"})
     void update(Goods goods);
+
+    /**
+     * 根据商品ID查看商品信息
+     * @return
+     */
+    @Select("select * from goods where id =#{gid}")
+    Goods queryOneGoodByGid(Integer gid);
 }

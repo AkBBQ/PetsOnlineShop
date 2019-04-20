@@ -1,6 +1,7 @@
 package com.pet.shop.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.pet.shop.mapper.OrderMapper;
 import com.pet.shop.model.Cart;
 import com.pet.shop.model.Order;
 import com.pet.shop.model.OrderInfo;
@@ -29,6 +30,9 @@ public class OrderController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     /**
      * 购物下单
@@ -113,5 +117,28 @@ public class OrderController {
         model.addAttribute("orders",orderPageInfo.getList());
         model.addAttribute("Pages",orderPageInfo);
         return "admin/order-list";
+    }
+
+    /**
+     * 查看订单详情
+     */
+    @RequestMapping("/queryOrderInfo")
+    public String queryOrderInfo(String id,Model model){
+        model.addAttribute("orderInfo",orderService.queryOneOrderInfo(id));
+        return "admin/orderInfo";
+    }
+
+    /**
+     * 发货
+     */
+    @RequestMapping("/send")
+    public String sendGoods(String id){
+        try {
+            orderMapper.update(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/queryAllOrders";
+
     }
 }

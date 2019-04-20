@@ -4,6 +4,7 @@ import com.pet.shop.model.Goods;
 import com.pet.shop.model.Order;
 import com.pet.shop.service.GoodsService;
 import com.pet.shop.service.OrderService;
+import com.pet.shop.service.PhotoShowService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class IndexController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private PhotoShowService photoShowService;
+
     /**
      * 首页视图
      */
@@ -41,6 +45,10 @@ public class IndexController {
         model.addAttribute("PetsFood",goodsService.queryDiffRecommendByType(2));
         //宠物玩具推荐
         model.addAttribute("PetsToys",goodsService.queryDiffRecommendByType(3));
+        //轮播图
+        model.addAttribute("Photo",photoShowService.queryAll());
+        //热卖排行榜前六位
+        model.addAttribute("Hot",goodsService.queryHot());
         return "index";
     }
 

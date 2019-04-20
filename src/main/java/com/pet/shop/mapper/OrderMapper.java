@@ -4,6 +4,7 @@ import com.pet.shop.model.Order;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.*;
 /**
@@ -25,6 +26,27 @@ public interface OrderMapper {
     /**
      * 后台查询所有订单
      */
-   @Select("select o.order_id,o.bid,o.phone,o.address,o.status,o.creat_time,o.send_time,u.name from orders o ,user u where o.bid = u.id")
+   @Select({"<script>",
+           "select o.order_id,o.bid,o.phone,o.address,o.status,o.creat_time,o.send_time,u.name from orders o ,user u",
+           "<where>",
+           "and o.bid = u.id",
+           "<if test=\"status != null and status !='' \">",
+           "and status = #{status}",
+           "</if>",
+
+           "<if test=\"orderId != null and orderId !='' \">",
+           "and order_id = #{orderId}",
+           "</if>",
+
+           "</where>",
+           "</script>"})
     List<Order> queryAllOrder(Order order);
+
+    /**
+     * 发货
+     */
+   @Update("update orders set status = 4 where order_id = #{orderId} ")
+   void update(String id);
+
+
 }
