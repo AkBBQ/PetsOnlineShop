@@ -24,7 +24,7 @@ public interface GoodsMapper {
     "<where>",
 
     "<if test=\"name != null and name !='' \">",
-    "and name = #{name}",
+    "and name like concat('%',#{name},'%')",
     "</if>",
 
     "<if test='id != null'>",

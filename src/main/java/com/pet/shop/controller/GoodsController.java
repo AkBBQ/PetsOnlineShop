@@ -37,7 +37,7 @@ public class GoodsController {
     private TitleService titleService;
 
     /**
-     * 查询全部商品(支持多条件)
+     * 后台查询全部商品(支持多条件)
      * @param goods
      * @param model
      * @return

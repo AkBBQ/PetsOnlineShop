@@ -2,6 +2,7 @@ package com.pet.shop.service;
 
 import com.pet.shop.model.FirstTitle;
 import com.pet.shop.model.SecondTitle;
+import com.pet.shop.vo.ClassVo;
 
 import java.util.List;
 
@@ -86,4 +87,9 @@ public interface TitleService {
      * @param id
      */
     void deleteOneSecond(Integer id);
+
+    /**
+     * 查询全部标题分类
+     */
+    List<ClassVo> queryAllTitle();
 }

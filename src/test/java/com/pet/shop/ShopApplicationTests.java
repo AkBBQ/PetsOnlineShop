@@ -8,6 +8,8 @@ import com.pet.shop.model.Goods;
 import com.pet.shop.model.Order;
 import com.pet.shop.model.SecondTitle;
 import com.pet.shop.model.User;
+import com.pet.shop.service.TitleService;
+import com.pet.shop.vo.ClassVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,9 @@ public class ShopApplicationTests {
 
     @Autowired
     private OrderMapper orderMapper;
+
+    @Autowired
+    private TitleService titleService;
 
     @Test
     public void contextLoads() {
@@ -94,5 +99,15 @@ public class ShopApplicationTests {
        orderMapper.queryAllOrder(order);
 //        orderMapper.add(order);
        // System.out.println(orderMapper.queryAllOrder());
+    }
+
+    /**
+     * 类别查询
+     */
+    @Test
+    public void queryTitile(){
+        List<ClassVo> classVos = titleService.queryAllTitle();
+        System.out.println(classVos);
+
     }
 }

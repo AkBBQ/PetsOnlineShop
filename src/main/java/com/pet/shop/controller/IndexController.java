@@ -47,7 +47,7 @@ public class IndexController {
         model.addAttribute("PetsToys",goodsService.queryDiffRecommendByType(3));
         //轮播图
         model.addAttribute("Photo",photoShowService.queryAll());
-        //热卖排行榜前六位
+        //热卖排行榜前十位
         model.addAttribute("Hot",goodsService.queryHot());
         return "index";
     }

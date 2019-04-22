@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="../res/static/css/main.css" />
   <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css" />
   <script type="text/javascript" src="../res/layui/layui.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 </head>
@@ -33,12 +34,12 @@
           </a>
         </h1>
         <div class="mallSearch">
-          <form action="" class="layui-form">
-            <input type="text" name="title"  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品" />
+          <form action="/shop/queryGood" method="post" class="layui-form" name="frm">
+            <input type="text" name="name"  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品" />
+              <input type="hidden" name="page" id="page" value="" />
             <button class="layui-btn"  lay-filter="formDemo">
                 <i class="layui-icon layui-icon-search"></i>
             </button>
-            <input type="hidden" name="" value="" />
           </form>
         </div>
       </div>
@@ -63,38 +64,13 @@
       <div class="commod-cont w1200 layui-clear">
         <div class="left-nav">
           <div class="title">所有分类</div>
-          <div class="list-box">
+          <div class="list-box" th:each="items : ${Title}">
             <dl>
-             <dt>奶粉辅食</dt>
-             <dd><a href="javascript:;">进口奶粉</a></dd>
-             <dd><a href="javascript:;">宝宝辅食</a></dd>
-             <dd><a href="javascript:;">营养品</a></dd>
-            </dl>
-            <dl>
-             <dt>儿童用品</dt>
-             <dd><a href="javascript:;">纸尿裤</a></dd>
-             <dd><a href="javascript:;">婴儿湿巾</a></dd>
-             <dd><a href="javascript:;">婴儿车</a></dd>
-             <dd><a href="javascript:;">婴儿床</a></dd>
-             <dd><a href="javascript:;">儿童安全座椅</a></dd>
-            </dl>
-            <dl>
-             <dt>儿童早教</dt>
-             <dd><a href="javascript:;">儿童玩具</a></dd>
-             <dd><a href="javascript:;">早教书籍</a></dd>
-             <dd><a href="javascript:;">孕产育儿书</a></dd>
-            </dl>
-            <dl>
-             <dt>儿童服饰</dt>
-             <dd><a href="javascript:;">童装</a></dd>
-             <dd><a href="javascript:;">童鞋</a></dd>
-             <dd><a href="javascript:;">宝宝配饰</a></dd>
-            </dl>
-            <dl>
-             <dt>孕妈专区</dt>
-             <dd><a href="javascript:;">孕妇装</a></dd>
-             <dd><a href="javascript:;">孕妇护肤</a></dd>
-             <dd><a href="javascript:;">孕妇用品</a></dd>
+             <dt th:text="${items.supTypeDesc}">宠物类</dt>
+                <dd th:each="i:${items.secondTitles}">
+
+             <dd th:text="${i.name}"><a href="javascript:;"> 宠物狗</a></dd>
+                </dd>
             </dl>
           </div>
         </div>
@@ -121,45 +97,26 @@
                   <p class="title" th:text="${items.name}"></p>
                   <p class="price">
                       <span class="pri" th:text="${'￥'+items.price}">200</span>
-                    <span class="nub">1266付款</span>
                   </p>
                 </div>
               </div>
                 </div>
-
-
-
-              <div class="item">
-                <div class="img">
-                  <a href="javascript:;"><img src="../res/static/img/paging_img3.jpg" /></a>
-                </div>
-                <div class="text">
-                  <p class="title">森系小清新四件套</p>
-                  <p class="price">
-                    <span class="pri">￥200</span>
-                    <span class="nub">1266付款</span>
-                  </p>
-                </div>
-              </div>
             </div>
-            <!-- 模版引擎导入 -->
-            <!-- <script type="text/html" id="demo">
-              {{# layui.each(d.menu.milk.content,function(index,item){}}    
-                <div class="item">
-                  <div class="img">
-                    <UserService href="javascript:;"><img src="{{item.img}}"></UserService>
+            <!--<div id="demo0" style="text-align: center;"></div>-->
+              <div class="page">
+                  <div>
+                      <ul class="pagination">
+                          <li ><a href="javascript:go(1)">首页</a></li>
+                          <li><a th:href="|javascript:go(${Pages.prePage})|">上一页</a></li>
+                          <li><a th:href="|javascript:go(${Pages.nextPage})|">下一页  </a></li>
+                          <li><a th:href="|javascript:go(${Pages.pages})|">末页</a></li>
+
+                      </ul>
+                      <div style="margin-top:10px">
+                          <span th:text="${'共'+Pages.pages+'页,'+'第'+Pages.pageNum+'页'}"></span>
+                      </div>
                   </div>
-                  <div class="text">
-                    <p class="title"></p>
-                    <p class="price">
-                      <span class="pri">{{item.pri}}</span>
-                      <span class="nub">{{item.nub}}</span>
-                    </p>
-                  </div>
-                </div>
-              {{# }); }}
-            </script> -->
-            <div id="demo0" style="text-align: center;"></div>
+              </div>
           </div>
         </div>
       </div>
@@ -178,21 +135,6 @@
       });
 
 
-    // 模版引擎导入
-    //  var html = demo.innerHTML;
-    //  var listCont = document.getElementById('list-cont');
-    //  // console.log(layui.router("#/about.html"))
-    // mm.request({
-    //     url: '../json/commodity.json',
-    //     success : function(res){
-    //       console.log(res)
-    //       listCont.innerHTML = mm.renderHtml(html,res)
-    //     },
-    //     error: function(res){
-    //       console.log(res);
-    //     }
-    //   })
-
     $('.sort a').on('click',function(){
       $(this).addClass('active').siblings().removeClass('active');
     })
@@ -209,6 +151,13 @@
 });
 </script>
 
+
+  <script>
+      function go(currPage){
+          $('#page').val(currPage);
+          document.frm.submit();
+      }
+  </script>
 
 </body>
 </html>

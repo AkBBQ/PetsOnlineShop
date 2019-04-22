@@ -16,11 +16,10 @@
             <a href="#">首页</a>
         </p>
         <div class="sn-quick-menu">
-            <div class="login"><a href="login.html">欢迎您</a></div>
             <div class="login"><a href="/login">登录</a></div>
             <div class="login"><a href="/goToRegister">注册</a></div>
-
-            <div class="sp-cart"><a href="/Cart/queryCart">购物车</a><span></span></div>
+            <div class="login"><a href="/Cart/queryCart">购物车</a>
+                <div class="login"><a href="/goToRegister">我的订单</a></div></div>
         </div>
     </div>
 </div>
@@ -35,12 +34,11 @@
                 </a>
             </h1>
             <div class="mallSearch">
-                <form action="" class="layui-form">
-                    <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品" />
+                <form action="/shop/queryGood" class="layui-form">
+                    <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品" />
                     <button class="layui-btn" lay-filter="formDemo">
                         <i class="layui-icon layui-icon-search"></i>
                     </button>
-                    <input type="hidden" name="" value="" />
                 </form>
             </div>
         </div>
@@ -54,7 +52,7 @@
             <div class="inner-cont1 w1200">
                 <div class="inner-cont2">
                     <a href="/shop/queryAllGoods">商城列表</a>
-                    <a href="buytoday.html">今日团购</a>
+                    <!--<a href="buytoday.html">今日团购</a>-->
                     <a href="information.html">宠物资讯</a>
                     <a href="about.html">关于我们</a>
                 </div>
@@ -68,8 +66,6 @@
                 <span th:each="items : ${Photo}">
                      <div><img th:src="@{'http://image.husky007.top/'+${items.image}}" width="100%"/></div>
                 </span>
-
-                <!--<div><img src="../res/static/img/banner.jpg" width="100%" /></div>-->
             </div>
         </div>
         </div>

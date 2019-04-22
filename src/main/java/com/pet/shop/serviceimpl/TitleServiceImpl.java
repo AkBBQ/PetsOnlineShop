@@ -5,12 +5,14 @@ import com.pet.shop.mapper.SecondTitleMapper;
 import com.pet.shop.model.FirstTitle;
 import com.pet.shop.model.SecondTitle;
 import com.pet.shop.service.TitleService;
+import com.pet.shop.vo.ClassVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -189,5 +191,24 @@ public class TitleServiceImpl implements TitleService {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public List<ClassVo> queryAllTitle() {
+        //返回对象
+        List<ClassVo> result = new ArrayList<>();
+        List<FirstTitle> firstTitles = firstTitleMapper.queryAll();
+        firstTitles.forEach(x->{
+            //一级标题信息
+            ClassVo classVo = new ClassVo();
+            classVo.setId(x.getId());
+            classVo.setSupTypeDesc(x.getName());
+
+            //二级标题信息
+            List<SecondTitle> secondTitles = secondTitleMapper.queryAllByFirstId(x.getId());
+            classVo.setSecondTitles(secondTitles);
+            result.add(classVo);
+        });
+        return result;
     }
 }
