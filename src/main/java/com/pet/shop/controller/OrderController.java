@@ -82,7 +82,7 @@ public class OrderController {
             cartService.deleteCart(x.getId());
 
         });
-        return "";
+        return "redirect:/queryCurrentAllOrders";
     }
 
     /**
@@ -107,6 +107,24 @@ public class OrderController {
         return "receipt";
     }
 
+
+    /**
+     * 前台查看当前登陆者的全部订单
+     */
+    @RequestMapping("/queryCurrentAllOrders")
+    public String queryCurrentAllOrders(Order order, Model model,HttpSession httpSession){
+        Object user = httpSession.getAttribute("User");
+        if (Objects.isNull(user)) {
+                return "redirect:/login";
+        }
+        User loginUser = (User) user;
+        //购物者ID
+        order.setBid(loginUser.getId());
+        PageInfo<Order> orderPageInfo = orderService.queryAllOrder(order);
+        model.addAttribute("orders",orderPageInfo.getList());
+        model.addAttribute("Pages",orderPageInfo);
+        return "order-list";
+    }
 
     /**
      * 后台查看全部订单

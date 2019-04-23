@@ -1,5 +1,6 @@
 package com.pet.shop.controller;
 
+import com.pet.shop.eunm.OrderStatus;
 import com.pet.shop.model.Goods;
 import com.pet.shop.model.Order;
 import com.pet.shop.service.GoodsService;
@@ -96,7 +97,12 @@ public class IndexController {
      * 后台欢迎页面（代办中心）
      */
     @RequestMapping("adminWelcome")
-    public String adminWelcome(){
+    public String adminWelcome(Model model){
+        Order o = new Order();
+        o.setStatus(OrderStatus.WAITSEND.getCode());
+        model.addAttribute("totalGoods",goodsService.queryAllGoods(new Goods()).getTotal());
+        model.addAttribute("totalOrders",orderService.queryAllOrder(new Order()).getTotal());
+        model.addAttribute("waitSend",orderService.queryAllOrder(o).getTotal());
         return "admin/welcome";
     }
 

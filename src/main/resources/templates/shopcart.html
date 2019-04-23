@@ -160,7 +160,6 @@
           data:{gid:$("#gid").val(),num:$("#num").val()},
           success:function(data){
               if(data.toString() == "未登录"){
-                  // layer.msg('请先登录再购物!',{icon:1,time:3000});
                   window.location.href = "/login";
               }else{
                   window.location.href = "/Cart/queryCart"

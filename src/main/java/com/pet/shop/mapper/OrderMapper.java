@@ -38,6 +38,10 @@ public interface OrderMapper {
            "and order_id = #{orderId}",
            "</if>",
 
+           "<if test=\"bid != null and bid !='' \">",
+           "and bid = #{bid}",
+           "</if>",
+
            "</where>",
            "</script>"})
     List<Order> queryAllOrder(Order order);

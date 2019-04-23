@@ -39,6 +39,14 @@ public interface GoodsMapper {
     "and isRecommend = #{isRecommend}",
     "</if>",
 
+    "<if test='supType != null'>",
+    "and supType = #{supType}",
+    "</if>",
+
+    "<if test='subType != null'>",
+    "and subType = #{subType}",
+    "</if>",
+
     "</where>",
     "</script>"})
     List<Goods> queryAllgoods(Goods goods);

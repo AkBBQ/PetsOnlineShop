@@ -16,7 +16,7 @@ public interface upload {
 
     /**
      * 七牛云上传
-     * @param filePath 文件绝对路劲
+     * @param filePath 文件绝对路径
      */
     void upload(String filePath,String name);
 }
