@@ -5,6 +5,7 @@ import com.pet.shop.model.User;
 import com.pet.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -73,5 +74,14 @@ public class LoginAndRegister {
             httpSession.setMaxInactiveInterval(60*60*24);
         }
         return flag;
+    }
+
+    /**
+     * 查看所有用户
+     */
+    @RequestMapping("/queryAllUser")
+    public String queryAllUser(Model model){
+        model.addAttribute("Users",userMapper.queryAllUser());
+        return "admin/admin-list";
     }
 }

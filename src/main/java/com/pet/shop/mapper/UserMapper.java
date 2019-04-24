@@ -4,6 +4,7 @@ import com.pet.shop.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import java.util.List;
 
 /**
  * 用户Mapper
@@ -37,4 +38,11 @@ public interface UserMapper {
      */
     @Select("select * from user where name = #{name} and identity =#{identity}")
     User adminLogin(User user);
+
+    /**
+     * 查询全部用户
+     * @return
+     */
+    @Select("select * from user")
+    List<User> queryAllUser();
 }

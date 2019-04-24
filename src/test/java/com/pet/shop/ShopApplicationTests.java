@@ -80,7 +80,6 @@ public class ShopApplicationTests {
         goods.setSex(1);
         goods.setImage("拉布拉多的照片");
         goods.setAge(12);
-
         goodsMapper.addGood(goods);
     }
 

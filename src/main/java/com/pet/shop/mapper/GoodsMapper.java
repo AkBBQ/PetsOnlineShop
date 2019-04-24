@@ -40,11 +40,11 @@ public interface GoodsMapper {
     "</if>",
 
     "<if test='supType != null'>",
-    "and supType = #{supType}",
+    "and sup_type = #{supType}",
     "</if>",
 
     "<if test='subType != null'>",
-    "and subType = #{subType}",
+    "and sub_type = #{subType}",
     "</if>",
 
     "</where>",
