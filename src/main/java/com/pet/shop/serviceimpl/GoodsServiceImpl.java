@@ -125,4 +125,13 @@ public class GoodsServiceImpl implements GoodsService {
         }
         return orderInfos;
     }
+
+    @Override
+    public void updateGood(Goods goods) {
+        try {
+            goodsMapper.update(goods);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

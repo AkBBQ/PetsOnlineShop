@@ -23,7 +23,7 @@
       </p>
       <div class="sn-quick-menu">
         <!--<div class="login"><a href="login.html">登录</a></div>-->
-        <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
+        <!--<div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>-->
       </div>
     </div>
   </div>
@@ -114,7 +114,7 @@
               <span class="sum" th:text="${items.totalAmount}">180.00</span>
             </li>
             <li class="th th-op">
-              <a th:href="@{'/Order/deleteCartGood?id='+${items.id}}"><span class="dele-btn">删除</span></a>
+              <a th:href="@{/deleteCartGood(id=${items.id})}"><span class="dele-btn">删除</span></a>
             </li>
           </ul>
         </div>
@@ -135,7 +135,7 @@
         </div>
         <div class="th Settlement">
           <!--<button class="layui-btn" id="settle">结算</button>-->
-          <button class="layui-btn" onclick="x_admin_show('添加商品','/receipt',600,400)">下单</button>
+          <button class="layui-btn" onclick="x_admin_show('下单','/receipt',600,400)">下单</button>
         </div>
         <div class="th total">
           <p>应付：<span class="pieces-total">0</span></p>

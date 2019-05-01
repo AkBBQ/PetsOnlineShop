@@ -52,5 +52,11 @@ public interface OrderMapper {
    @Update("update orders set status = 4 where order_id = #{orderId} ")
    void update(String id);
 
+    /**
+     * 支付
+     */
+    @Update("update orders set status = 3 where order_id = #{orderId} ")
+    void pay(String id);
+
 
 }

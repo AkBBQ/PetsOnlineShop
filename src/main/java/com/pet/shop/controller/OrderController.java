@@ -88,7 +88,7 @@ public class OrderController {
     /**
      * 删除购物车中的商品
      */
-    @RequestMapping("/deleteCartGoods")
+    @RequestMapping("/deleteCartGood")
     public String deleteCartGoods(Integer id){
         Assert.notNull(id,"商品ID不能为空");
         try {
@@ -96,7 +96,7 @@ public class OrderController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/Order/order";
+        return "redirect:/Cart/queryCart";
     }
 
     /**
@@ -157,6 +157,20 @@ public class OrderController {
             e.printStackTrace();
         }
         return "redirect:/queryAllOrders";
+
+    }
+
+    /**
+     * 发货
+     */
+    @RequestMapping("/pay")
+    public String pay(String id){
+        try {
+            orderMapper.pay(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/queryCurrentAllOrders";
 
     }
 }

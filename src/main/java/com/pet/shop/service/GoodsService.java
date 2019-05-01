@@ -36,5 +36,11 @@ public interface GoodsService {
      */
     List<Goods> queryDiffRecommendByType(Integer supType);
 
+    /**
+     * 查看热销
+     * @return
+     */
     List<OrderInfo> queryHot();
+
+    void updateGood(Goods goods);
 }

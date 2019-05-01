@@ -78,7 +78,7 @@
               </a>
               <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
                <span th:if="${items.status == 2}">
-                   <a th:href="@{'/send?id='+${items.orderId}}">
+                   <a th:href="@{'/pay?id='+${items.orderId}}">
                    <button>支付</button>
                    </a>
                </span>

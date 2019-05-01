@@ -93,15 +93,19 @@ public interface GoodsMapper {
             "<set>",
 
             "<if test='name != null'>",
-            " name = #{name}",
+            " name = #{name},",
             "</if>",
 
-            "<if test='sex != null'>",
-            "sex = #{sex}",
+            "<if test='price != null'>",
+            "price = #{price},",
             "</if>",
 
-            "<if test='age != null'>",
-            "age = #{age}",
+            "<if test='supType != null'>",
+            "sup_type = #{supType},",
+            "</if>",
+
+            "<if test='subType != null'>",
+            "sub_type = #{subType},",
             "</if>",
 
             "<if test='isRecommend != null'>",
@@ -109,7 +113,7 @@ public interface GoodsMapper {
             "</if>",
 
             "</set>",
-            "where id=#{id}",
+            "where id = #{id}",
             "</script>"})
     void update(Goods goods);
 

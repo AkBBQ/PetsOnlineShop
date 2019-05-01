@@ -109,5 +109,31 @@ public class GoodsController {
         }
         return "redirect:/Goods/queryAllGoods";
         }
+
+    /**
+     * 更新跳转页面
+     */
+    @RequestMapping("/beforeUpdate")
+    public String beforeUpdate(Integer id, Model model) {
+        Goods goods = new Goods();
+        goods.setId(id);
+        model.addAttribute("good", goodsService.queryAllGoods(goods).getList().get(0));
+
+        List<FirstTitle> firstTitles = titleService.queryAllFirst();
+        if (!CollectionUtils.isEmpty(firstTitles)) {
+            model.addAttribute("FirstTitle", firstTitles);
+        }
+
+        return "admin/goods-update";
     }
+
+        /**
+         * 更新商品
+         */
+        @RequestMapping("/update")
+            public String updateGood(Goods goods){
+            goodsService.updateGood(goods);
+            return "redirect:/Goods/queryAllGoods";
+            }
+        }
 
