@@ -126,4 +126,21 @@ public class IndexController {
         return "goodinfo";
     }
 
+    /**
+     * 宠物资讯
+     */
+    @RequestMapping("/inforMation")
+    public String inforMation(){
+        return "information";
+    }
+
+    /**
+     * 关于我们
+     * @return
+     */
+    @RequestMapping("/about")
+    public String about(){
+        return "about";
+    }
+
 }
