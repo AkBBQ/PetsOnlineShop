@@ -76,13 +76,13 @@
               <a th:href="@{'/queryOrderInfo?id='+${items.orderId}}">
                 <i class="layui-icon">&#xe63c;</i>
               </a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"></a>
                <span th:if="${items.status == 2}">
-                   <a th:href="@{'/pay?id='+${items.orderId}}">
-                   <button>支付</button>
-                   </a>
+                   <!--<a th:href="@{'/pay?id='+${items.orderId}}">-->
+                     <button class="layui-btn" th:onclick="|x_admin_show('支付','@{/qrCode(orderId=${items.orderId})}',600,400)|">支付</button>
+                   <!--</a>-->
                </span>
-              </a>
+
             </td>
           </tr>
         </tbody>

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -161,16 +162,28 @@ public class OrderController {
     }
 
     /**
-     * 发货
+     * 二维码
+     * @param orderId 订单号
      */
+    @RequestMapping("/qrCode")
+        public String qrCode(String orderId,Model model){
+         model.addAttribute("orderId",orderId);
+        return "qrCode";
+    }
+
+    /**
+     * 支付
+     */
+    @ResponseBody
     @RequestMapping("/pay")
-    public String pay(String id){
+    public Integer pay(String id){
         try {
             orderMapper.pay(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/queryCurrentAllOrders";
+        return 1;
+//        return "redirect:/queryCurrentAllOrders";
 
     }
 }

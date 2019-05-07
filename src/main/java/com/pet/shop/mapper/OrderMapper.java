@@ -46,6 +46,13 @@ public interface OrderMapper {
            "</script>"})
     List<Order> queryAllOrder(Order order);
 
+
+    /**
+     * 查询指定订单
+     */
+    @Select("select * from orders where id = #{id} ")
+    Order queryOneOrder(Integer id);
+
     /**
      * 发货
      */
