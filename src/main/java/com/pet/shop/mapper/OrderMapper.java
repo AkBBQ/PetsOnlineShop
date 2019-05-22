@@ -56,8 +56,8 @@ public interface OrderMapper {
     /**
      * 发货
      */
-   @Update("update orders set status = 4 where order_id = #{orderId} ")
-   void update(String id);
+   @Update("update orders set status = 4,send_time = #{sendTime} where order_id = #{orderId} ")
+   void update(Order order);
 
     /**
      * 支付

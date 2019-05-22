@@ -66,8 +66,15 @@
             <td th:text="${items.phone}">7829.10</td>
             <td th:text="${items.address}">7854.10</td>
             <td th:text="${items.statusDesc}">待确认</td>
-            <td th:text="${items.creatTime}">下单时间</td>
-            <td th:text="${items.sendTime}">发货时间</td>
+            <td th:text="${#dates.format(items.creatTime,'yyyy-MM-dd HH:mm:ss')}">下单时间</td>
+            <span th:if="${null != items.sendTime}">
+              <td th:text="${#dates.format(items.sendTime,'yyyy-MM-dd HH:mm:ss')}">发货时间</td>
+            </span>
+            <span th:if="${null == items.sendTime}">
+              <td th:text="无"></td>
+            </span>
+            <!--<td th:text="${items.creatTime}">下单时间</td>-->
+            <!--<td th:text="${items.sendTime}">发货时间</td>-->
             <td class="td-manage">
               <!--<a title="查看详情"  th:onclick="|x_admin_show('查看详情','order-view.html')|" href="javascript:;">-->
                 <!--<i class="layui-icon">&#xe63c;</i>-->
