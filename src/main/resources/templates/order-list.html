@@ -66,8 +66,15 @@
             <td th:text="${items.phone}">7829.10</td>
             <td th:text="${items.address}">7854.10</td>
             <td th:text="${items.statusDesc}">待确认</td>
-            <td th:text="${items.creatTime}">下单时间</td>
-            <td th:text="${items.sendTime}">发货时间</td>
+            <td th:text="${#dates.format(items.creatTime,'yyyy-MM-dd HH:mm:ss')}">下单时间</td>
+            <span th:if="${null != items.sendTime}">
+              <td th:text="${#dates.format(items.sendTime,'yyyy-MM-dd HH:mm:ss')}">发货时间</td>
+            </span>
+            <span th:if="${null == items.sendTime}">
+              <td th:text="无"></td>
+            </span>
+            <!--<td th:text="${items.creatTime}">下单时间</td>-->
+            <!--<td th:text="${items.sendTime}">发货时间</td>-->
             <td class="td-manage">
               <!--<a title="查看详情"  th:onclick="|x_admin_show('查看详情','order-view.html')|" href="javascript:;">-->
                 <!--<i class="layui-icon">&#xe63c;</i>-->
@@ -76,13 +83,13 @@
               <a th:href="@{'/queryOrderInfo?id='+${items.orderId}}">
                 <i class="layui-icon">&#xe63c;</i>
               </a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;"></a>
                <span th:if="${items.status == 2}">
-                   <a th:href="@{'/pay?id='+${items.orderId}}">
-                   <button>支付</button>
-                   </a>
+                   <!--<a th:href="@{'/pay?id='+${items.orderId}}">-->
+                     <button class="layui-btn" th:onclick="|x_admin_show('支付','@{/qrCode(orderId=${items.orderId})}',600,400)|">支付</button>
+                   <!--</a>-->
                </span>
-              </a>
+
             </td>
           </tr>
         </tbody>

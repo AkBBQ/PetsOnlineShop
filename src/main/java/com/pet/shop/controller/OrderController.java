@@ -8,11 +8,13 @@ import com.pet.shop.model.OrderInfo;
 import com.pet.shop.model.User;
 import com.pet.shop.service.CartService;
 import com.pet.shop.service.OrderService;
+import com.sun.tools.corba.se.idl.constExpr.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -152,7 +154,10 @@ public class OrderController {
     @RequestMapping("/send")
     public String sendGoods(String id){
         try {
-            orderMapper.update(id);
+            Order order = new Order();
+            order.setOrderId(id);
+            order.setSendTime(new Date());
+            orderMapper.update(order);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,16 +166,28 @@ public class OrderController {
     }
 
     /**
-     * 发货
+     * 二维码
+     * @param orderId 订单号
      */
+    @RequestMapping("/qrCode")
+        public String qrCode(String orderId,Model model){
+         model.addAttribute("orderId",orderId);
+        return "qrCode";
+    }
+
+    /**
+     * 支付
+     */
+    @ResponseBody
     @RequestMapping("/pay")
-    public String pay(String id){
+    public Integer pay(String id){
         try {
             orderMapper.pay(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/queryCurrentAllOrders";
+        return 1;
+//        return "redirect:/queryCurrentAllOrders";
 
     }
 }

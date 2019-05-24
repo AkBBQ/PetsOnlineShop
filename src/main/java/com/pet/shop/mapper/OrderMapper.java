@@ -46,11 +46,18 @@ public interface OrderMapper {
            "</script>"})
     List<Order> queryAllOrder(Order order);
 
+
+    /**
+     * 查询指定订单
+     */
+    @Select("select * from orders where id = #{id} ")
+    Order queryOneOrder(Integer id);
+
     /**
      * 发货
      */
-   @Update("update orders set status = 4 where order_id = #{orderId} ")
-   void update(String id);
+   @Update("update orders set status = 4,send_time = #{sendTime} where order_id = #{orderId} ")
+   void update(Order order);
 
     /**
      * 支付

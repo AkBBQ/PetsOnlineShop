@@ -5,6 +5,8 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.pet.shop.service.upload;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,6 +21,8 @@ import java.util.List;
  *
  */
 public class QRCodeUtil {
+    @Autowired
+    private upload upload;
     // 二维码颜色==黑色
     private static final int BLACK = 0xFF000000;
     // 二维码颜色==白色
