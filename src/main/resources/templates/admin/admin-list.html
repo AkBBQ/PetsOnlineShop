@@ -47,9 +47,6 @@
       <table class="layui-table">
         <thead>
           <tr>
-            <th>
-              <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-            </th>
             <th>ID</th>
             <th>登录名</th>
             <th>手机</th>
@@ -62,9 +59,6 @@
         </thead>
         <tbody>
           <tr th:each="items : ${Users}">
-            <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
-            </td>
             <td th:text="${items.id}">1</td>
             <td th:text="${items.name}">admin</td>
             <td th:text="${items.phone}">18925139194</td>

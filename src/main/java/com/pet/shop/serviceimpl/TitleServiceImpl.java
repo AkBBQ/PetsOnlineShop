@@ -60,7 +60,7 @@ public class TitleServiceImpl implements TitleService {
 
     @Override
     public FirstTitle queryOneFirst(Integer id) {
-        Assert.notNull(id,"一级标题ID不能为空");
+//        Assert.notNull(id,"一级标题ID不能为空");
         FirstTitle firstTitle = null;
         try {
               firstTitle = firstTitleMapper.queryOne(id);

@@ -33,13 +33,13 @@
       <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so layui-form-pane" th:action="@{/Title/queryFirst}">
           <input class="layui-input" placeholder="id" name="id" />
-          <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>搜索</button>
+          <button class="layui-btn"  lay-submit="" lay-filter="sreach">搜索</button>
         </form>
           <button class="layui-btn layui-btn layui-btn-xs" th:onclick="|x_admin_show('新增','/Title/adminClassAdd')|" ><i class="layui-icon"></i>新增</button>
       </div>
-      <xblock>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
-      </xblock>
+      <!--<xblock>-->
+        <!--<span class="x-right" style="line-height:40px">共有数据：88 条</span>-->
+      <!--</xblock>-->
       <table class="layui-table layui-form">
         <thead>
           <tr>
