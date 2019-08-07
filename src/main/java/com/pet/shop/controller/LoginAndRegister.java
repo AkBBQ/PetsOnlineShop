@@ -3,6 +3,8 @@ package com.pet.shop.controller;
 import com.pet.shop.mapper.UserMapper;
 import com.pet.shop.model.User;
 import com.pet.shop.service.UserService;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +35,9 @@ public class LoginAndRegister {
      * @param user
      * @return
      */
+    @ApiOperation(value = "用户登录",notes = "登陆")
     @ResponseBody
-    @RequestMapping("login")
+    @RequestMapping(value = "login",method = RequestMethod.POST)
     public int login(User user, HttpSession httpSession){
         int result = userService.login(user);
         if(result == 0){
@@ -79,7 +82,8 @@ public class LoginAndRegister {
     /**
      * 查看所有用户
      */
-    @RequestMapping("/queryAllUser")
+    @ApiOperation(value = "查看所有用户",notes = "查看所有用户")
+    @RequestMapping(value = "/queryAllUser",method = RequestMethod.GET)
     public String queryAllUser(Model model){
         model.addAttribute("Users",userMapper.queryAllUser());
         return "admin/admin-list";

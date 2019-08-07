@@ -2,14 +2,18 @@ package com.pet.shop.controller;
 
 import com.pet.shop.model.FirstTitle;
 import com.pet.shop.model.Goods;
+import com.pet.shop.model.User;
 import com.pet.shop.service.GoodsService;
 import com.pet.shop.service.TitleService;
 import com.pet.shop.service.upload;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,9 +28,11 @@ import java.util.Objects;
  * @author 昂太
  *
  */
+
 @Slf4j
 @Controller
 @RequestMapping("/Goods")
+@Api("商品控制层")
 public class GoodsController {
 
     @Autowired
@@ -44,10 +50,21 @@ public class GoodsController {
      */
     @RequestMapping("/queryAllGoods")
     public String queryAllGoods(Goods goods ,Model model){
-       model.addAttribute("GoodsList",goodsService.queryAllGoods(goods).getList());
-       model.addAttribute("Pages",goodsService.queryAllGoods(goods));
-       return "admin/goods";
+        model.addAttribute("GoodsList",goodsService.queryAllGoods(goods).getList());
+        model.addAttribute("Pages",goodsService.queryAllGoods(goods));
+        return "admin/goods";
     }
+
+    @ApiOperation(value = "查询全部商品",notes = "查询")
+    @ResponseBody
+    @GetMapping("queryTest")
+    public List<Goods> queryAllGoods(User user){
+        Goods goods = new Goods();
+        List<Goods> list = goodsService.queryAllGoods(goods).getList();
+        return list;
+    }
+
+
 
     /**
      * 根据主键ID删商品
