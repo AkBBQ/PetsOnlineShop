@@ -18,12 +18,14 @@ public class ShopApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext application = SpringApplication.run(ShopApplication.class, args);
         Environment env = application.getEnvironment();
+        System.out.println("里面有什么鬼东西"+env);
+        System.out.println("端口号"+env.getProperty("server.ports"));
         logger.info("\n----------------------------------------------------------\n\t" +
                         "Application '{}' is running! Access URLs:\n\t" +
                         "Local: \t\thttp://localhost:8088\n\t" +
                         "swagger: \t\thttp://localhost:8088/swagger-ui.html\n\t"+
                         "Doc: \thttp://{}:{}/api/swagger-ui.html\n"+
                         "----------------------------------------------------------",
-                env.getProperty("spring.application.name"));
+               env.getProperty("spring.application.name"));
     }
 }

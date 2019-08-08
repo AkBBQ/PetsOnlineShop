@@ -32,7 +32,7 @@ import java.util.Objects;
 @Slf4j
 @Controller
 @RequestMapping("/Goods")
-@Api("商品控制层")
+@Api(description = "商品控制层")
 public class GoodsController {
 
     @Autowired
