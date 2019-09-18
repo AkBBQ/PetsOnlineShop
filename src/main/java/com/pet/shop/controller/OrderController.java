@@ -8,7 +8,6 @@ import com.pet.shop.model.OrderInfo;
 import com.pet.shop.model.User;
 import com.pet.shop.service.CartService;
 import com.pet.shop.service.OrderService;
-import com.sun.tools.corba.se.idl.constExpr.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
